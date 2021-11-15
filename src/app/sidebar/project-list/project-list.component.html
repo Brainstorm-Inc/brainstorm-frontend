@@ -1,0 +1,15 @@
+<div class = "projects">
+
+  <div class="p">
+    <div *ngFor="let project of projects"
+      [class.selected] = "project === selectedProject"
+      (click)="onSelect(project)">
+      {{project.name}}
+      <hr>
+    </div>
+  </div>
+
+  <div class="button"><button (click)="goToDetail()"></button></div>
+
+</div>
+

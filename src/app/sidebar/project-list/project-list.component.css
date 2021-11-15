@@ -1,0 +1,21 @@
+.projects {
+  display: block;
+  text-align: center;
+  float: left;
+  width: 243px;
+  background-color: #231E23;
+}
+
+hr {
+  border-bottom: 1px solid #39A6A3;
+}
+
+.projects .p {
+  color: #DEEEEA;
+}
+
+
+
+.projects .p:hover {
+  background-color: #D1045F;
+}
