@@ -1,19 +1,34 @@
-const { guessProductionMode } = require("@ngneat/tailwind");
+const {guessProductionMode} = require("@ngneat/tailwind");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
-    prefix: '',
-    purge: {
-      enabled: guessProductionMode(),
-      content: [
-        './src/**/*.{html,ts}',
-      ]
+  prefix: '',
+  purge: {
+    enabled: guessProductionMode(),
+    content: [
+      './src/**/*.{html,ts}',
+    ]
+  },
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#39A6A3",
+        "secondary": "#FE2679",
+        "secondary-darker": "#D1045F",
+        "accent": "#DEEEEA",
+        "accent-darker": "#8E9996",
+        "background": "#231E23",
+        "background-light": "#363536",
+        "warning": "#F78812",
+        "error": "#FF0000",
+        "success": "#3E7C17",
+        "light-text": colors.white
+      }
     },
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-      extend: {},
-    },
-    variants: {
-      extend: {},
-    },
-    plugins: [require('@tailwindcss/forms'),require('@tailwindcss/line-clamp'),require('@tailwindcss/typography')],
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
 };
