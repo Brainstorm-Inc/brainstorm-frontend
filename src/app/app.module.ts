@@ -7,9 +7,11 @@ import { TopicComponent } from './topic/topic.component';
 import { IterationHeadComponent } from './iteration-head/iteration-head.component';
 import {DatePipe} from "@angular/common";
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ProjectListComponent } from './sidebar/project-list/project-list.component';
+import {ProjectListComponent, SafeHtmlPipe} from './sidebar/project-list/project-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { TopicListComponent } from './sidebar/topic-list/topic-list.component';
+import { ProjectComponent } from './sidebar/project-list/project/project.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import {HttpClientModule} from "@angular/common/http";
     IterationHeadComponent,
     TopicComponent,
     SidebarComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    TopicListComponent,
+    SafeHtmlPipe,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
