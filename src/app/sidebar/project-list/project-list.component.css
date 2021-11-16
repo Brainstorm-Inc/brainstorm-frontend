@@ -1,21 +1,24 @@
-.projects {
-  display: block;
-  text-align: center;
-  float: left;
+.list {
+  height: 100%;
+  z-index: 1;
   width: 243px;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #231E23;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
 hr {
   border-bottom: 1px solid #39A6A3;
 }
 
-.projects .p {
+.list .p {
   color: #DEEEEA;
+  text-align: center;
 }
 
-
-
-.projects .p:hover {
+.p :hover {
   background-color: #D1045F;
 }
