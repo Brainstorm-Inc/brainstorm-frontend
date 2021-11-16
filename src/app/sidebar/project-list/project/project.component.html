@@ -1,1 +1,9 @@
-<p>project works!</p>
+<div class="text-white border-b-2 border-primary py-2 hover:bg-secondary" (click)="select()">
+  <span class="pl-4 text-xl">{{project.name}}</span>
+</div>
+<div *ngIf="isSelected" class="hover:bg-secondary ml-8 text-white text-xl border-b-2 border-primary py-2">
+  <div *ngFor="let topic of project.topics" class="pl-1">
+    {{topic.title}}
+  </div>
+</div>
+

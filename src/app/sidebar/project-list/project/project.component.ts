@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Project} from "../../../shared/model/project.model";
 
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
 
-  constructor() { }
+  @Input() project!: Project;
+  isSelected: boolean = false;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  select(): void {
+    this.isSelected = !this.isSelected;
   }
 
 }
