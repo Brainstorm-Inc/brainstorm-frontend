@@ -1,0 +1,29 @@
+<div class="w-full h-full flex justify-center items-center text-light-text">
+  <div class="bg-background flex flex-col justify-start items-center w-1/2">
+    <div class="w-full h-20 flex justify-center items-center text-3xl border-b-4 border-accent-darker">
+      <div class="flex flex-1 items-center justify-center text-secondary">Login</div>
+      <div class="h-full w-1 bg-accent-darker"></div>
+      <div class="flex flex-1 items-center justify-center">Signup</div>
+    </div>
+    <div class="p-10">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" formControlName="email" class="form-control text-black" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control text-black" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <app-button text="Login" [colorType]="ColorType.primary" [type]="ButtonType.filled"></app-button>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </form>
+    </div>
+  </div>
+</div>
