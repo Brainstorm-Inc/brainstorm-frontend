@@ -1,0 +1,39 @@
+<div class="iteration">
+  <div class="header">
+    <label class="creation-detail-label">
+      {{creator.firstName}} posted {{getSpentTime()}} ago
+    </label>
+    <div class="icons">
+      <span class="material-icons">tag_faces</span>
+      <span class="material-icons">dehaze</span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="text">
+      <label class="headline">
+        {{headline}}
+      </label>
+      <label class="subtext">
+        {{subtext}}
+      </label>
+    </div>
+    <div class="details">
+      <div class="goal">
+        <label>
+          Goal:
+        </label>
+        <label class="bold-label">
+          {{goal}}
+        </label>
+      </div>
+      <div class="deadline">
+        <label>
+          Deadline:
+        </label>
+        <label class="bold-label">
+          {{getDeadline()}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
