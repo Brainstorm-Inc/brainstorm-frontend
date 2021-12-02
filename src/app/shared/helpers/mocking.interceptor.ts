@@ -1,28 +1,33 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class MockingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const isApiUrl = request.url.startsWith(environment.apiUrl);
     const isMocking = environment.mocking;
-    const mockSettings = {
-      code: 200,
-      example: 'Maria'
+    const mockSettings: { [key: string]: any } = {
+      '/Auth/login': {
+        code: 200,
+        example: "Gheo"
+      },
+      '/User/': {
+        code: 200,
+        example: 'Gigel'
+      }
     }
     if (isMocking && isApiUrl) {
       const newUrl = request.url.replace(environment.apiUrl, environment.mockingApiUrl);
-      const preferSerialized = Object.entries(mockSettings).reduce(((previousValue, currentValue) => previousValue + currentValue[0] + "=" + currentValue[1] + ", "), '')
+      let preferSerialized = '';
+      const matching = Object.keys(mockSettings).find((value) => newUrl.includes(value));
+      if (matching)
+        preferSerialized = Object.entries(mockSettings[matching]).reduce(((previousValue, currentValue) => previousValue + currentValue[0] + "=" + currentValue[1] + ", "), '')
       request = request.clone({
         url: newUrl,
         setHeaders: {
