@@ -13,6 +13,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import {JwtInterceptor} from "./shared/helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
+import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true },
     DatePipe
   ],
   bootstrap: [AppComponent]
