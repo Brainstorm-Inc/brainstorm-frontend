@@ -1,0 +1,36 @@
+.list {
+  height: 100%;
+  z-index: 1;
+  width: 243px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #231E23;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+hr {
+  border-bottom: 1px solid #39A6A3;
+}
+
+.list .p {
+  position: relative;
+  color: #DEEEEA;
+  text-align: center;
+}
+
+.p :hover {
+  background-color: #D1045F;
+}
+
+.dropdown-content {
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  color: #DEEEEA;
+}
+
+.dropdown-content:hover {background-color: #D1045F;}
+
+.dropdown-content {display: block;}
