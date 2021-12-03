@@ -1,0 +1,19 @@
+<div class="flex text-white border-b-2 border-primary py-2 hover:bg-secondary" (click)="select()">
+<!--  <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" style=":checked{transform: rotate(180deg)}" type="checkbox" id="chck1">-->
+    <div class="transition transform ease-in-out flex1 w-7 h-7 flex items-center justify-center" [ngClass]="{'rotate-180':isSelected}">
+        <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="6 9 12 15 18 9">
+          </polyline>
+        </svg>
+    </div>
+    <!--  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>-->
+    <div class="flex1">
+      <span class="pl-4 text-xl">{{project.name}}</span>
+    </div>
+</div>
+<div *ngIf="isSelected" class="hover:bg-secondary ml-16 text-white text-xl border-b-2 border-primary py-2">
+  <div *ngFor="let topic of project.topics" class="pl-1">
+    {{topic.title}}
+  </div>
+</div>
+
