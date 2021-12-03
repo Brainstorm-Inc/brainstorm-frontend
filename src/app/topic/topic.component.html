@@ -2,32 +2,37 @@
   <div class="topic-content">
     <div class="topic-column">
       <h2 id="topic-title">{{topicDetails.title}}</h2>
-      <div *ngIf="topicDetails.nbrOfIterations > 1; else oneIteration" class="topic-details">
-        <label>Current Goal: <b>{{topicDetails.goal}}</b></label>
-        <label>Current Iteration: <b>{{topicDetails.currentIteration}}</b></label>
+      <div *ngIf="topicDetails.type == 'complex'; else oneIteration" class="topic-details">
+        <label>Current Goal: <b>{{iteration.goal}}</b></label>
+        <label>Current Iteration: <b>{{iteration.position}}</b></label>
         <label class="deadline">Iteration Deadline: <b>{{deadline}}</b></label>
       </div>
       <ng-template #oneIteration>
         <div class="topic-details">
-          <label>Goal: <b>{{topicDetails.goal}}</b></label>
+          <label>Goal: <b>{{iteration.goal}}</b></label>
           <label class="deadline">Deadline: <b>{{deadline}}</b></label>
         </div>
       </ng-template>
     </div>
     <div class="topic-column">
-      <label *ngIf="topicDetails.nbrOfIterations > 1; else oneIterationLabel">Previous Iteration idea:</label>
+      <label *ngIf="topicDetails.type == 'complex'; else oneIterationLabel">Previous Iteration idea:</label>
       <ng-template #oneIterationLabel>
         <label>Current best idea:</label>
       </ng-template>
       <div id="topic-card">
-        <label id="topic-idea">{{topicDetails.topicIdea}}</label>
+        <div id="topic-card-text">
+          <section  id="topic-idea">{{highlightedProposal.description}}</section>
+        </div>
+        <div id="topic-card-img" *ngIf="proposalImage != ''">
+          <img src='{{proposalImage}}'>
+        </div>
       </div>
       <div id="activity-profile-heads">
         <div class="profile-head" *ngFor="let image of getProfileImages()">
           <img src='{{image}}'>
         </div>
         <div id="profile-label">
-          <label *ngIf="!(getUnseenProfileNbr() == '0')">+{{getUnseenProfileNbr()}}</label>
+          <label *ngIf="this.topicDetails.activeUsers.length > 4">+{{this.topicDetails.activeUsers.length - 4}}</label>
         </div>
       </div>
     </div>

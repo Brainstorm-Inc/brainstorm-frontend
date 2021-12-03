@@ -1,82 +1,105 @@
-.topic {
+.topic{
   width: 1013px;
   height: 202px;
-  background-color: rgb(35, 30, 35);
+  background-color: rgb(35,30,35);
   color: white;
   border-radius: 15px;
   display: flex;
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat";
+  margin-top: 10px;
 }
 
-.topic-content {
+.topic-content{
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.topic-column {
+.topic-column{
   display: flex;
   margin: 20px 20px 20px 20px;
   flex-direction: column;
 }
 
-#topic-title {
+#topic-title{
   margin: 0 0 0 0;
   font-weight: bold;
   flex-wrap: wrap;
 }
 
-.topic-details {
+.topic-details{
   display: flex;
   margin-top: auto;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.topic-details > label {
-  color: rgb(222, 238, 234);
+.topic-details > label{
+  color: rgb(222,238,234);
   font-weight: 100;
   font-size: 14px;
   margin: 5px 0 0 5px;
 }
 
-.topic-details > label > b {
+.topic-details > label > b{
   color: white;
   font-size: 14px;
 }
 
-.topic-details > .deadline {
+.topic-details > .deadline{
   color: rgb(220, 122, 20);
 }
 
-.topic-details > .deadline > b {
-  color: rgb(247, 136, 18)
+.topic-details > .deadline > b{
+  color: rgb(247,136,18)
 }
 
-#topic-card {
+#topic-card{
   width: 403px;
   height: 85px;
   max-width: 600px;
   max-height: 95px;
-  background-color: rgb(57, 166, 163);
+  background-color: rgb(57,166,163);
   border-radius: 15px;
   margin: 10px 0 10px 0;
   border-style: solid;
-  border-color: rgb(254, 38, 121);
+  border-color: rgb(254,38,121);
   border-width: 0.5px;
   display: flex;
-  color: rgb(222, 238, 234);
+  color: rgb(222,238,234);
+  flex-direction: row;
+  align-items: stretch;
 }
 
-#topic-idea {
+#topic-card-text{
+  display: flex;
   flex: 1;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+}
+
+#topic-card-text > #topic-idea{
+  display: inherit;
   font-size: 9px;
   margin: 10px 10px 10px 10px;
   color: black;
 }
 
-#activity-profile-heads {
+#topic-card-img{
+  display: inherit;
+  max-height: 95px;
+  max-width: 100px;
+}
+
+#topic-card-img > img{
+  border-radius: 0 15% 15% 0;
+}
+
+#activity-profile-heads{
   margin-left: auto;
   display: inline-flex;
   flex-direction: row;
@@ -90,7 +113,7 @@
   overflow: visible;
 }
 
-.profile-head:not(:first-child) {
+.profile-head:not(:first-child){
   margin-left: -5px;
 }
 
