@@ -1,5 +1,5 @@
 import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
-import {Project} from "../../shared/model/project.model";
+import {Project} from "../../../models/project.model";
 import {Router} from "@angular/router";
 import {Topic} from "../../shared/model/topic.model";
 import {DomSanitizer} from "@angular/platform-browser";

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Topic} from "../shared/models/topic.model";
-import {Iteration} from "../shared/models/iteration.model";
-import {Proposal} from "../shared/models/proposal.model";
+import {Topic} from "../../models/topic.model";
+import {Iteration} from "../../models/iteration.model";
+import {Proposal} from "../../models/proposal.model";
 
 @Component({
   selector: 'topic',
