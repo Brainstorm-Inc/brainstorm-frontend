@@ -1,5 +1,5 @@
 import {CommentsSummary} from "./commentsSummary.model";
-import {Raiting} from "./raiting.model";
+import {Rating} from "./rating.model";
 
 export interface Proposal{
   id: string;
@@ -8,5 +8,5 @@ export interface Proposal{
   creationDate: string;
   files: Array<string>;
   comments: CommentsSummary;
-  rating: Raiting;
+  rating: Rating;
 }
