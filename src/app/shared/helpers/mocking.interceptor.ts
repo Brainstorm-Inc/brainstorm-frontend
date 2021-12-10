@@ -19,8 +19,23 @@ export class MockingInterceptor implements HttpInterceptor {
       },
       '/User/': {
         code: 200,
-        example: 'Gigel'
-      }
+        example: 'Maricica'
+        // example: "Gigel"
+      },
+      '/Topic/': {
+        code: 200,
+        //example: "Complex"
+        example: "Simple"
+      },
+      '/Proposal/': {
+        code: 200,
+        //example: "ComplexTopicProposal"
+        example: "SimpleTopicProposal"
+      },
+      '/Iteration/':{
+        code: 200,
+        example: "TopicIteration"
+      },
     }
     if (isMocking && isApiUrl) {
       const newUrl = request.url.replace(environment.apiUrl, environment.mockingApiUrl);
