@@ -1,4 +1,4 @@
-<div *ngIf="loadedData" class="topic">
+<div class="topic">
   <div class="topic-content">
     <div class="topic-column">
       <h2 id="topic-title">{{topicDetails.title}}</h2>
@@ -21,7 +21,7 @@
       </ng-template>
       <div id="topic-card">
         <div id="topic-card-text">
-          <section  id="topic-idea">{{highlightedProposal?.description}}</section>
+          <section  id="topic-idea">{{highlightedProposal.description}}</section>
         </div>
         <div id="topic-card-img" *ngIf="proposalImage != ''">
           <img src='{{proposalImage}}'>

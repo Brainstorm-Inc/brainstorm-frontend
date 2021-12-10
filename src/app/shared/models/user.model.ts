@@ -3,5 +3,5 @@ export interface UserModel {
   firstName: string;
   lastName: string;
   email: string;
-  profilePic?: string;
+  profilePicture?: string;
 }
