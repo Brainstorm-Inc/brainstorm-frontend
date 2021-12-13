@@ -31,10 +31,13 @@ export class MockingInterceptor implements HttpInterceptor {
         example: 'Maricica'
         // example: "Gigel"
       },
-      '/Topic/': {
+      '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
+        code: 200,
+        example: "Simple"
+      },
+      '/Topic/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5': {
         code: 200,
         example: "Complex"
-        // example: "Simple"
       },
       '/Proposal/': {
         code: 200,

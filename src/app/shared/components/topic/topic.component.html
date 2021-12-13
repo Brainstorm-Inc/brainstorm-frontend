@@ -1,5 +1,5 @@
 <div *ngIf="loadedData" class="topic">
-  <div class="topic-content">
+  <div (click)="navigateToTopic()" class="topic-content cursor-pointer select-none">
     <div class="topic-column">
       <h2 id="topic-title">{{topicDetails.title}}</h2>
       <div *ngIf="topicDetails.type == 'complex'; else oneIteration" class="topic-details">
@@ -21,14 +21,14 @@
       </ng-template>
       <div id="topic-card">
         <div id="topic-card-text">
-          <section  id="topic-idea">{{highlightedProposal?.description}}</section>
+          <section id="topic-idea">{{highlightedProposal?.description}}</section>
         </div>
-        <div id="topic-card-img" *ngIf="proposalImage != ''">
+        <div *ngIf="proposalImage != ''" id="topic-card-img">
           <img src='{{proposalImage}}'>
         </div>
       </div>
       <div id="activity-profile-heads">
-        <div class="profile-head" *ngFor="let image of getProfileImages()">
+        <div *ngFor="let image of getProfileImages()" class="profile-head">
           <img src='{{image}}'>
         </div>
         <div id="profile-label">

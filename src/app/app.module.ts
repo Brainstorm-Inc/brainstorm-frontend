@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TopicComponent} from './shared/components/topic/topic.component';
+import {TopicComponent as TopicPageComponent} from './pages/topic/topic.component';
 import {IterationHeadComponent} from './shared/components/iteration-head/iteration-head.component';
 import {DatePipe} from "@angular/common";
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
@@ -22,6 +23,7 @@ import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
   declarations: [
     AppComponent,
     TopicComponent,
+    TopicPageComponent,
     IterationHeadComponent,
     AuthComponent,
     ButtonComponent,
