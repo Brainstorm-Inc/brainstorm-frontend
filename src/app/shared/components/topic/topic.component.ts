@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Topic} from "../shared/models/topic.model";
-import {Iteration} from "../shared/models/iteration.model";
-import {Proposal} from "../shared/models/proposal.model";
-import {TopicService} from "../shared/services/topic.service";
-import {ProposalService} from "../shared/services/proposal.service";
-import {IterationService} from "../shared/services/iteration.service";
-import {UserService} from "../shared/services/user.service";
+import {Topic} from "../../models/topic.model";
+import {Iteration} from "../../models/iteration.model";
+import {Proposal} from "../../models/proposal.model";
+import {TopicService} from "../../services/topic.service";
+import {ProposalService} from "../../services/proposal.service";
+import {IterationService} from "../../services/iteration.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'topic',

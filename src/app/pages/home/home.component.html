@@ -1,0 +1,8 @@
+<div class="flex justify-start items-start w-screen h-screen">
+  <app-sidebar class="flex-initial h-screen"></app-sidebar>
+  <div class="flex flex-col flex-auto justify-start items-center">
+    <p class="text-3xl">home works!</p>
+    <p *ngIf="user != null" class="text-2xl">some user request {{user.firstName}} {{user.lastName}} {{user.email}}</p>
+    <app-button (click)="logOut()" text="Log Out"></app-button>
+  </div>
+</div>

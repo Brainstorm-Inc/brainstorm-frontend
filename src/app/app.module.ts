@@ -3,14 +3,17 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {TopicComponent} from './topic/topic.component';
-import {IterationHeadComponent} from './iteration-head/iteration-head.component';
+import {TopicComponent} from './shared/components/topic/topic.component';
+import {IterationHeadComponent} from './shared/components/iteration-head/iteration-head.component';
 import {DatePipe} from "@angular/common";
-import {AuthComponent} from './auth/auth.component';
-import {ButtonComponent} from './shared/button/button.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import {ProjectListComponent, SafeHtmlPipe} from './shared/components/sidebar/project-list/project-list.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { HomeComponent } from './home/home.component';
+import { ProjectComponent } from './shared/components/sidebar/project-list/project/project.component';
+import {AuthComponent} from './pages/auth/auth.component';
+import {ButtonComponent} from './shared/components/button/button.component';
+import { HomeComponent } from './pages/home/home.component';
 import {JwtInterceptor} from "./shared/helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
 import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
@@ -22,13 +25,18 @@ import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
     IterationHeadComponent,
     AuthComponent,
     ButtonComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent,
+    ProjectListComponent,
+    SafeHtmlPipe,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    AppRoutingModule,
+    FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -38,5 +46,4 @@ import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
