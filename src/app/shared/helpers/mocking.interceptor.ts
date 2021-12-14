@@ -26,11 +26,16 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 200,
         example: "Gheo"
       },
+      '/User/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5':{
+      code: 200,
+        example: "User"
+      },
       '/User/': {
         code: 200,
         example: 'Maricica'
         // example: "Gigel"
-      },
+      }
+      ,
       '/Topic/': {
         code: 200,
         example: "Complex"
@@ -44,7 +49,51 @@ export class MockingInterceptor implements HttpInterceptor {
       '/Iteration/':{
         code: 200,
         example: "TopicIteration"
+      },
+      // DELETE - delete user from Org
+      '/Org/fbbb7610-5cc7-11ec-bf63-0242ac130002/user':{
+        code: 202
+      },
+      // POST - add user to Org
+      '/Org/fbbb76e2-5cc7-11ec-bf63-0242ac130002/user/' : {
+        code: 201
+      },
+      // GET - check if user in Org
+      '/Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/user/' : {
+        code: 204,
+        example: "UserInOrganization"
       }
+      ,
+      '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002/project': {
+      code: 201
+      },
+      // test DELETE
+      '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002':{
+        code: 202
+      }
+      ,
+      // test GET
+      '/Org/fbbb7a98-5cc7-11ec-bf63-0242ac130002' : {
+        code: 200,
+        example: "SchoolProject"
+      },
+      // test PUT
+      '/Org/fbbb79c6-5cc7-11ec-bf63-0242ac130002' : {
+        code: 200,
+        example: "UpdateOrgInfo"
+      }
+      ,
+      '/Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/users': {
+        code: 200,
+        example: "BookClub"
+      },
+      '/Org' : {
+        code: 200,
+        example: "NewOrg"
+      }
+
+
+
     }
     if (isMocking && isApiUrl) {
       const newUrl = request.url.replace(environment.apiUrl, environment.mockingApiUrl);
