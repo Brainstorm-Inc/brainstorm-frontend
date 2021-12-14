@@ -1,4 +1,4 @@
-export interface Topic {
+export interface TopicSummary {
   id: string;
   type: string;
   title: string;
@@ -6,6 +6,9 @@ export interface Topic {
   highlightedProposal: string;
   activeUsers: Array<String>;
   currentIteration: string;
+}
+
+export interface Topic extends TopicSummary{
   iterations?: Array<String>;
   creationDate?: string;
 }

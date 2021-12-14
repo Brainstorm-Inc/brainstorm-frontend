@@ -62,7 +62,7 @@ span {
 
 .goal, .deadline {
   padding: 10px;
-  float: right;
+  float: left;
 }
 
 .deadline {

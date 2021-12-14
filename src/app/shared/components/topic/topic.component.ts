@@ -6,16 +6,17 @@ import {TopicService} from "../../services/topic.service";
 import {ProposalService} from "../../services/proposal.service";
 import {IterationService} from "../../services/iteration.service";
 import {UserService} from "../../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'topic',
-  templateUrl: '/topic.component.html',
+  templateUrl: './topic.component.html',
   styleUrls: ['./topic.component.css']
 })
 export class TopicComponent implements OnInit {
 
   @Input()
-  public topicId!:string;
+  public topicId!: string;
   public topicDetails!: Topic;
   public iteration!: Iteration;
   public highlightedProposal!: Proposal;
@@ -28,6 +29,7 @@ export class TopicComponent implements OnInit {
   constructor(private topicService: TopicService,
               private proposalService: ProposalService,
               private iterationService: IterationService,
+              private router: Router,
               private userService: UserService) {
 
   }
@@ -41,7 +43,7 @@ export class TopicComponent implements OnInit {
           .subscribe(proposal => {
             this.highlightedProposal = proposal;
 
-            if (this.highlightedProposal.files.length > 0){
+            if (this.highlightedProposal.files.length > 0) {
               this.proposalImage = this.highlightedProposal.files[0];
             }
 
@@ -59,14 +61,14 @@ export class TopicComponent implements OnInit {
       });
   }
 
-  setDeadline(){
+  setDeadline() {
     let deadlineAsDate = new Date(this.iteration.deadline)
     this.deadline = deadlineAsDate.getDate() + " " + this.months[deadlineAsDate.getMonth()]
   }
 
-  loadProfileImages(){
+  loadProfileImages() {
     let index = 0
-    while (index < 4 && index < this.topicDetails.activeUsers.length){
+    while (index < 4 && index < this.topicDetails.activeUsers.length) {
       this.userService.getUser(this.topicDetails.activeUsers[index].toString()).subscribe(user => {
         this.activeUsersImgs.push(user.profilePic!)
       })
@@ -76,7 +78,7 @@ export class TopicComponent implements OnInit {
   }
 
   // It will return the images for active users
-  getProfileImages(): string[]{
+  getProfileImages(): string[] {
     return this.activeUsersImgs;
   }
 }

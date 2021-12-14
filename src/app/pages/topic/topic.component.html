@@ -1,0 +1,12 @@
+<div class="flex justify-start items-start w-screen h-screen">
+  <app-sidebar class="flex-initial h-screen"></app-sidebar>
+  <div class="flex flex-col flex-auto justify-start space-y-2 m-4">
+    <app-iteration-head
+      [creator]="{firstName: 'Gigel', lastName: 'Anton', email: 'gigel.anton@gmail.com', profilePic: 'https://i.pravatar.cc/150?u=gigel'}"
+      [deadline]="getDeadline()"
+      [creationDate]="getCreationDate()"
+      goal="Reach an agreement with the management team."
+      headline="We want more money!"
+      subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem."></app-iteration-head>
+  </div>
+</div>

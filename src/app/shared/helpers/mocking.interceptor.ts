@@ -32,14 +32,23 @@ export class MockingInterceptor implements HttpInterceptor {
       },
       '/User/': {
         code: 200,
-        example: 'Maricica'
-        // example: "Gigel"
-      }
-      ,
+        // example: 'Maricica'
+        example: "Gigel"
+      },
+      'Org/{orgId}/projects': {
+        code: 200,
+        example: 'ana'},
+      '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
+        code: 200,
+        example: "Simple"
+      },
+      '/Topic/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5': {
+        code: 200,
+        example: "Complex"
+      },
       '/Topic/': {
         code: 200,
         example: "Complex"
-        // example: "Simple"
       },
       '/Proposal/': {
         code: 200,
@@ -49,6 +58,18 @@ export class MockingInterceptor implements HttpInterceptor {
       '/Iteration/':{
         code: 200,
         example: "TopicIteration"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topics': {
+        code: 200,
+        example: "FirstGet"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic':{
+        code: 200,
+        example: "First"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002': {
+        code: 200,
+        example: "FirstGetAllInDetail"
       },
       // DELETE - delete user from Org
       '/Org/fbbb7610-5cc7-11ec-bf63-0242ac130002/user':{
@@ -65,7 +86,7 @@ export class MockingInterceptor implements HttpInterceptor {
       }
       ,
       '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002/project': {
-      code: 201
+        code: 201
       },
       // test DELETE
       '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002':{
@@ -91,9 +112,6 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 200,
         example: "NewOrg"
       }
-
-
-
     }
     if (isMocking && isApiUrl) {
       const newUrl = request.url.replace(environment.apiUrl, environment.mockingApiUrl);

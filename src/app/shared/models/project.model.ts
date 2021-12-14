@@ -1,7 +1,11 @@
-import {Topic} from "./topic.model";
+import {TopicSummary} from "./topic.model";
 
-export interface Project {
+export interface ProjectSummary {
   id: string;
   name: string;
-  topics: Array<Topic>;
+  topics: Array<TopicSummary>;
+}
+
+export interface Project extends ProjectSummary {
+
 }
