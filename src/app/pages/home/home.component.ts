@@ -17,10 +17,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser("01143f01-7b4a-4aad-8e87-6de87e34d9cc").subscribe(data => this.user = data);
   }
-
-  logOut(): void {
-    this.authService.logout()
-    this.router.navigate(['/auth'], {queryParams: {returnUrl: this.router.url}})
-  }
-
 }

@@ -1,8 +1,13 @@
-<div class="h-20 bg-background w-full p-2">
+<div class="h-24 w-full"></div>
+<div class="fixed top-0 flex h-24 w-full bg-background p-2 text-white shadow-lg">
   <div *ngIf="!isAuthenticated" class="w-full h-full flex items-center justify-between">
     <app-button [colorType]="ColorType.primary" [type]="ButtonType.outline" text="Login"></app-button>
   </div>
-  <div *ngIf="isAuthenticated" class="w-full h-full flex items-center justify-between">
-    authenticated
+  <div *ngIf="isAuthenticated" class="flex flex-1 items-center justify-between">
+    <div class="flex flex-col justify-evenly items-start">
+      <span class="text-xl">{{!loadedData ? "Loading..." : organization.name}}</span>
+      <span>{{!loadedData ? "Loading..." : currentUser.email}}</span>
+    </div>
+    <app-button (click)="logOut()" text="Log Out"></app-button>
   </div>
 </div>
