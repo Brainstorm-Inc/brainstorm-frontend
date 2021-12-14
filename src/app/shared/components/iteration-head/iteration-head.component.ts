@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserModel} from "../../models/user.model";
+import {User} from "../../models/user.model";
 import {getTimeDifferenceAsString} from "../../utils/time";
 import { DatePipe } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { DatePipe } from '@angular/common';
 export class IterationHeadComponent implements OnInit {
 
   @Input()
-  public creator!: UserModel;
+  public creator!: User;
 
   @Input()
   public headline: string;

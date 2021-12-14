@@ -71,7 +71,6 @@ export class TopicComponent implements OnInit {
     while (index < 4 && index < this.topicDetails.activeUsers.length) {
       this.userService.getUser(this.topicDetails.activeUsers[index].toString()).subscribe(user => {
         this.activeUsersImgs.push(user.profilePic!)
-        console.log(user)
       })
       index++
     }

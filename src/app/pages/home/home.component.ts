@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserModel} from "../../shared/models/user.model";
+import {User} from "../../shared/models/user.model";
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  user: UserModel | null = null;
+  user: User | null = null;
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router,) { }
 
