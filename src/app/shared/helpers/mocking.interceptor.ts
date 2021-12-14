@@ -28,9 +28,11 @@ export class MockingInterceptor implements HttpInterceptor {
       },
       '/User/': {
         code: 200,
-        example: 'Maricica'
-        // example: "Gigel"
+        example: 'Gigel'
       },
+      'Org/{orgId}/projects': {
+        code: 200,
+        example: 'ana'},
       '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
         code: 200,
         example: "Simple"
@@ -47,7 +49,20 @@ export class MockingInterceptor implements HttpInterceptor {
       '/Iteration/':{
         code: 200,
         example: "TopicIteration"
-      }
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topics': {
+        code: 200,
+        example: "FirstGet"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic':{
+        code: 200,
+        example: "First"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002': {
+        code: 200,
+        example: "FirstGetAllInDetail"
+      },
+
     }
     if (isMocking && isApiUrl) {
       const newUrl = request.url.replace(environment.apiUrl, environment.mockingApiUrl);
