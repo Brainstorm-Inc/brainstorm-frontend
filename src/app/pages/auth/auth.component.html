@@ -1,4 +1,4 @@
-<div class="w-full flex flex-1 justify-center items-center text-light-text p-6">
+<div class="w-full min-h-full h-1 flex flex-1 justify-center items-center text-light-text p-6">
   <div [ngSwitch]="selectedType" class="bg-background flex flex-col justify-start items-center w-1/2">
     <div class="w-full h-20 flex justify-center items-center text-3xl border-b-4 border-accent-darker">
       <div (click)="selectedType = 'login'" [ngClass]="{'text-secondary': selectedType == 'login'}"

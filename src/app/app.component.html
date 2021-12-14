@@ -1,4 +1,9 @@
 <div class="bg-accent w-full h-full flex flex-col">
-  <app-topbar></app-topbar>
-  <router-outlet></router-outlet>
+  <app-topbar class="flex-initial"></app-topbar>
+  <div class="flex flex-1 w-full">
+    <app-sidebar *ngIf="isAuthenticated" class="flex-initial h-full"></app-sidebar>
+    <div class="min-h-full h-1 flex-1" id="routerwrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

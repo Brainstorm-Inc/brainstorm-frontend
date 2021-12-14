@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-topic',
+  selector: '[page-topic]',
   templateUrl: './topic.component.html',
 })
 export class TopicComponent implements OnInit {

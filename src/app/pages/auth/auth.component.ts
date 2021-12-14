@@ -6,6 +6,7 @@ import {AuthService} from "../../shared/services/auth.service";
 import {first} from "rxjs/operators";
 
 @Component({
+  selector: '[page-auth]',
   templateUrl: './auth.component.html',
 })
 export class AuthComponent implements OnInit {

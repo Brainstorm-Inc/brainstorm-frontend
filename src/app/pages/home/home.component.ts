@@ -5,7 +5,7 @@ import { UserService } from '../../shared/services/user.service';
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-home',
+  selector: '[page-home]',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {

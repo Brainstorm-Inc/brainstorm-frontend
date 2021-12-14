@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./shared/services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'brainstorm-frontend';
+
+  constructor(private auth: AuthService) {
+  }
+
+  get isAuthenticated() {
+    return this.auth.currentUserValue != null;
+  }
 }
