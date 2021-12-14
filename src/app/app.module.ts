@@ -18,6 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {JwtInterceptor} from "./shared/helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
 import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
+import { TopbarComponent } from './shared/components/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
     SidebarComponent,
     ProjectListComponent,
     SafeHtmlPipe,
-    ProjectComponent
+    ProjectComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

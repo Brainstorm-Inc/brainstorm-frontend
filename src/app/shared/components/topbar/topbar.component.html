@@ -1,0 +1,8 @@
+<div class="h-20 bg-background w-full p-2">
+  <div *ngIf="!isAuthenticated" class="w-full h-full flex items-center justify-between">
+    <app-button [colorType]="ColorType.primary" [type]="ButtonType.outline" text="Login"></app-button>
+  </div>
+  <div *ngIf="isAuthenticated" class="w-full h-full flex items-center justify-between">
+    authenticated
+  </div>
+</div>
