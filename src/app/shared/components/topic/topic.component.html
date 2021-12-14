@@ -1,5 +1,5 @@
 <div *ngIf="loadedData" class="topic">
-  <div (click)="navigateToTopic()" class="topic-content cursor-pointer select-none">
+  <a [routerLink]="['/topic', this.topicId]" class="topic-content cursor-pointer select-none">
     <div class="topic-column">
       <h2 id="topic-title">{{topicDetails.title}}</h2>
       <div *ngIf="topicDetails.type == 'complex'; else oneIteration" class="topic-details">
@@ -36,5 +36,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>

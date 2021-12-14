@@ -82,8 +82,4 @@ export class TopicComponent implements OnInit {
   getProfileImages(): string[] {
     return this.activeUsersImgs;
   }
-
-  navigateToTopic() {
-    this.router.navigate(['/topic', this.topicId])
-  }
 }
