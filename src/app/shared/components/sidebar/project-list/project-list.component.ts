@@ -59,9 +59,9 @@ export class ProjectListComponent implements OnInit {
     // endregion move_to_test
     this.orgService.getProjects('fbbb7476-5cc7-11ec-bf63-0242ac130002').subscribe(listOfIds => {
       listOfIds.map((projId) => {
-        this.projectService.getProjectInfo("2ef92afa-5cd6-11ec-bf63-0242ac130002").subscribe(projInfo => {
+        this.projectService.getProjectInfo(projId).subscribe(projInfo => {
           console.log("project data retrieved");
-          this.projectService.getTopicsFromProject("2ef92afa-5cd6-11ec-bf63-0242ac130002").subscribe(topics => {
+          this.projectService.getTopics("2ef92afa-5cd6-11ec-bf63-0242ac130002").subscribe(topics => {
             console.log("topics from project were retrieved")
             let proj = {
               ...projInfo,

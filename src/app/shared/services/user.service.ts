@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get<User>(`${environment.apiUrl}/User/${userId}`);
   }
 
-  addUser(user: User) {
+  updateUser(user: User) {
     return this.http.put<any>(`${environment.apiUrl}/User/${user.id}`, user);
   }
 }

@@ -12,7 +12,7 @@ export class OrganizationService {
 
   constructor(private http: HttpClient) { }
 
-  getOrganizationUsers(orgId: string) {
+  getUsers(orgId: string) {
     return this.http.get<Array<User>>(`${environment.apiUrl}/Org/${orgId}/users`);
   }
 
@@ -32,19 +32,19 @@ export class OrganizationService {
     return this.http.delete(`${environment.apiUrl}/Org/${orgId}`);
   }
 
-  getUserInOrganization(orgId: string, userId: string) {
+  getUser(orgId: string, userId: string) {
     return this.http.get<User>(`${environment.apiUrl}/Org/${orgId}/user/${userId}`);
   }
 
-  addUserToOrganization(orgId: string, user: User) {
+  addUser(orgId: string, user: User) {
     return this.http.post<any>(`${environment.apiUrl}/Org/${orgId}/user/${user.id}`, user);
   }
 
-  removeUserFromOrganization(orgId: string, userId: string) {
+  removeUser(orgId: string, userId: string) {
     return this.http.delete(`${environment.apiUrl}/Org/${orgId}/user/${userId}`);
   }
 
-  addProjectToOrganization(orgId: string, project: Project){
+  addProject(orgId: string, project: Project){
     return this.http.post(`${environment.apiUrl}/Org/${orgId}/project`, project);
   }
 

@@ -17,11 +17,11 @@ export class ProjectService {
     return this.httpClient.get<ProjectSummary>(`${environment.apiUrl}/Project/${projectId}`);
   }
 
-  getTopicsFromProject(projectId: string) {
+  getTopics(projectId: string) {
     return this.httpClient.get<Array<TopicSummary>>(`${environment.apiUrl}/Project/${projectId}/topics`);
   }
 
-  addTopicToProject(projectId: string, topic: Topic) {
+  addTopic(projectId: string, topic: Topic) {
     return this.httpClient.post<Topic>(`${environment.apiUrl}/Project/${projectId}/topic`, topic);
   }
 }
