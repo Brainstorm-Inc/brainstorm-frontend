@@ -19,6 +19,7 @@ import {JwtInterceptor} from "./shared/helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
 import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
 import { TopbarComponent } from './shared/components/topbar/topbar.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { TopbarComponent } from './shared/components/topbar/topbar.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HotToastModule.forRoot({
+      position: "bottom-center"
+    })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
