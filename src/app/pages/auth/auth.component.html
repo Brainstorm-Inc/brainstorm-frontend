@@ -10,21 +10,24 @@
       </div>
     </div>
     <div *ngSwitchCase="'login'" class="p-10">
-      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-        <div class="form-group">
-          <label>Email</label>
-          <input [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control text-black"
-                 formControlName="email"
-                 type="text"/>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="flex flex-col space-y-2 justify-center items-center">
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">Email</label>
+            <input [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="flex-1 text-black"
+                   formControlName="email"
+                   type="text"/></div>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required">email is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control text-black"
-                 formControlName="password"
-                 type="password"/>
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">Password</label>
+            <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="flex-1 text-black"
+                   formControlName="password"
+                   type="password"/>
+          </div>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Password is required</div>
           </div>
@@ -34,39 +37,46 @@
       </form>
     </div>
     <div *ngSwitchCase="'signup'" class="p-10">
-      <form (ngSubmit)="onSubmitSignup()" [formGroup]="signupForm">
-        <div class="form-group">
-          <label>First Name</label>
-          <input [ngClass]="{ 'is-invalid': submitted && fsignup.firstName.errors }" class="form-control text-black"
-                 formControlName="firstName"
-                 type="text"/>
+      <form (ngSubmit)="onSubmitSignup()" [formGroup]="signupForm"
+            class="flex flex-col space-y-2 justify-center items-center">
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">First Name</label>
+            <input [ngClass]="{ 'is-invalid': submitted && fsignup.firstName.errors }" class="flex-1 text-black"
+                   formControlName="firstName"
+                   type="text"/></div>
           <div *ngIf="submitted && fsignup.firstName.errors" class="invalid-feedback">
             <div *ngIf="fsignup.firstName.errors.required">firstName is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input [ngClass]="{ 'is-invalid': submitted && fsignup.lastName.errors }" class="form-control text-black"
-                 formControlName="lastName"
-                 type="text"/>
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">Last Name</label>
+            <input [ngClass]="{ 'is-invalid': submitted && fsignup.lastName.errors }" class="flex-1 text-black"
+                   formControlName="lastName"
+                   type="text"/></div>
           <div *ngIf="submitted && fsignup.lastName.errors" class="invalid-feedback">
             <div *ngIf="fsignup.lastName.errors.required">lastName is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input [ngClass]="{ 'is-invalid': submitted && fsignup.email.errors }" class="form-control text-black"
-                 formControlName="email"
-                 type="text"/>
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">Email</label>
+            <input [ngClass]="{ 'is-invalid': submitted && fsignup.email.errors }" class="flex-1 text-black"
+                   formControlName="email"
+                   type="text"/>
+          </div>
           <div *ngIf="submitted && fsignup.email.errors" class="invalid-feedback">
             <div *ngIf="fsignup.email.errors.required">email is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input [ngClass]="{ 'is-invalid': submitted && fsignup.password.errors }" class="form-control text-black"
-                 formControlName="password"
-                 type="password"/>
+        <div class="flex flex-col w-full space-y-2">
+          <div class="w-full flex justify-evenly items-center space-x-2">
+            <label class="flex-1">Password</label>
+            <input [ngClass]="{ 'is-invalid': submitted && fsignup.password.errors }" class="flex-1 text-black"
+                   formControlName="password"
+                   type="password"/>
+          </div>
           <div *ngIf="submitted && fsignup.password.errors" class="invalid-feedback">
             <div *ngIf="fsignup.password.errors.required">Password is required</div>
           </div>
