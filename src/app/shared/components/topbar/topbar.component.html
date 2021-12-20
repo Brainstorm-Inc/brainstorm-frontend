@@ -4,9 +4,15 @@
     <app-button [colorType]="ColorType.primary" [type]="ButtonType.outline" text="Login"></app-button>
   </div>
   <div *ngIf="isAuthenticated" class="flex flex-1 items-center justify-between">
-    <div class="flex flex-col justify-evenly items-start">
-      <span class="text-xl">{{!loadedData ? "Loading..." : organization.name}}</span>
-      <span>{{!loadedData ? "Loading..." : currentUser.email}}</span>
+    <div class="flex justify-start items-center space-x-2">
+      <div class="h-12 w-12">
+        <img
+          [src]="!loadedData ? 'https://via.placeholder.com/100/231E23/DEEEEA/?text=Loading...' : organization.logo"/>
+      </div>
+      <div class="flex flex-col justify-evenly items-start">
+        <span class="text-xl">{{!loadedData ? "Loading..." : organization.name}}</span>
+        <span>{{!loadedData ? "Loading..." : currentUser.email}}</span>
+      </div>
     </div>
     <app-button (click)="logOut()" text="Log Out"></app-button>
   </div>
