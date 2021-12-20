@@ -47,5 +47,9 @@ export class OrganizationService {
   addProjectToOrganization(orgId: string, project: Project){
     return this.http.post(`${environment.apiUrl}/Org/${orgId}/project`, project);
   }
+
+  getProjects(orgId: string){
+    return this.http.get<Array<string>>(`${environment.apiUrl}/Org/${orgId}/projects`);
+  }
 }
 

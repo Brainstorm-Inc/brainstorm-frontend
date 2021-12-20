@@ -35,9 +35,10 @@ export class MockingInterceptor implements HttpInterceptor {
         // example: 'Maricica'
         example: "Gigel"
       },
-      'Org/{orgId}/projects': {
+      'Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/projects': {
         code: 200,
-        example: 'ana'},
+        example: 'OrgProjects'
+      },
       '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
         code: 200,
         example: "Simple"
