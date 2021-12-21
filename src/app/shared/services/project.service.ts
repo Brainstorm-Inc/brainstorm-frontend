@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ProjectSummary} from "../models/project.model";
 import {environment} from "../../../environments/environment";
 import {Topic, TopicSummary} from "../models/topic.model";
+import { OmitReadonly } from "src/utility-types";
 
 @Injectable({
     providedIn: 'root'
@@ -21,7 +22,7 @@ export class ProjectService {
     return this.httpClient.get<Array<TopicSummary>>(`${environment.apiUrl}/Project/${projectId}/topics`);
   }
 
-  addTopic(projectId: string, topic: Topic) {
+  addTopic(projectId: string, topic: OmitReadonly<Topic>) {
     return this.httpClient.post<Topic>(`${environment.apiUrl}/Project/${projectId}/topic`, topic);
   }
 }
