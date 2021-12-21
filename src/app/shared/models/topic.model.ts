@@ -1,16 +1,16 @@
 export interface TopicSummary {
-  id: string;
-  type: string;
+  readonly id: string;
+  readonly type: string;
   title: string;
-  author: string;
-  highlightedProposal: string;
-  activeUsers: Array<String>;
-  currentIteration: string;
+  readonly author: string;
+  readonly highlightedProposal: string;
+  readonly activeUsers: Array<String>;
+  readonly currentIteration: string;
 }
 
 export interface Topic extends TopicSummary{
-  iterations?: Array<String>;
-  creationDate?: string;
+  readonly iterations?: Array<String>;
+  readonly creationDate?: string;
 }
 
 export class TopicClass implements Topic{
