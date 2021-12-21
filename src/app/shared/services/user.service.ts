@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {environment} from "../../../environments/environment";
+import {OmitReadonly} from "../../../utility-types";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
     return this.http.get<User>(`${environment.apiUrl}/User/${userId}`);
   }
 
-  updateUser(user: User) {
-    return this.http.put<any>(`${environment.apiUrl}/User/${user.id}`, user);
+  updateUser(userId: string, user: OmitReadonly<User>) {
+    return this.http.put<User>(`${environment.apiUrl}/User/${userId}`, user);
   }
 }

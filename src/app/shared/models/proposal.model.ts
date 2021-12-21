@@ -2,11 +2,11 @@ import {CommentsSummary} from "./commentsSummary.model";
 import {Rating} from "./rating.model";
 
 export interface Proposal{
-  id: string;
+  readonly id: string;
   description: string;
-  author: string;
-  creationDate: string;
+  readonly author: string;
+  readonly creationDate: string;
   files: Array<string>;
-  comments: CommentsSummary;
-  rating: Rating;
+  readonly comments: CommentsSummary;
+  readonly rating: Rating;
 }

@@ -2,13 +2,13 @@ import {Proposal} from "./proposal.model";
 import {CommentsSummary} from "./commentsSummary.model";
 
 export interface Iteration{
-  id: string;
-  position: number;
-  open: boolean;
+  readonly id: string;
+  readonly position: number;
+  readonly open: boolean;
   goal: string;
   description: string;
   files: Array<string>;
-  comments: CommentsSummary;
+  readonly comments: CommentsSummary;
   deadline: string;
-  timeline: Array<Proposal>;
+  readonly timeline: Array<Proposal>;
 }
