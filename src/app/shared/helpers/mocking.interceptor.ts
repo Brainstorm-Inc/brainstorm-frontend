@@ -87,6 +87,10 @@ export class MockingInterceptor implements HttpInterceptor {
           code: 200,
           example: "FirstGet"
         },
+        'Project/497f6eca-6276-4993-bfeb-53cbbbba6f08/topics': {
+          code: 200,
+          example: "SecondProject"
+        },
         'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic': {
           code: 200,
           example: "First"
@@ -94,6 +98,14 @@ export class MockingInterceptor implements HttpInterceptor {
         'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/org': {
           code: 200,
           example: "GerParentOrg"
+        },
+        'Project/497f6eca-6276-4993-bfeb-53cbbbba6f08/org': {
+          code: 200,
+          example: "GerParentOrg"
+        },
+        'Project/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
+          code: 200,
+          example: "SecondExample"
         },
         'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002': {
           code: 200,
