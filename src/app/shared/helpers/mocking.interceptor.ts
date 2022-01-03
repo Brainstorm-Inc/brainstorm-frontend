@@ -26,8 +26,12 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 200,
         example: "Gheo"
       },
-      '/User/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5':{
-      code: 200,
+      '/User/dc003e9b-c339-491f-a4b3-ed3bf44836bb/orgs': {
+        code: 200,
+        example: "SampleList"
+      },
+      '/User/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5': {
+        code: 200,
         example: "User"
       },
       '/User/': {
@@ -38,6 +42,14 @@ export class MockingInterceptor implements HttpInterceptor {
       'Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/projects': {
         code: 200,
         example: 'OrgProjects'
+      },
+      '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08/project': {
+        code: 200,
+        example: "ProjectParentFirstExample"
+      },
+      '/Topic/c80af5c7-eb9c-4f3e-b9d9-873d8290ffb5/project': {
+        code: 200,
+        example: "ProjectParentFirstExample"
       },
       '/Topic/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
         code: 200,
@@ -56,7 +68,7 @@ export class MockingInterceptor implements HttpInterceptor {
         //example: "ComplexTopicProposal"
         example: "SimpleTopicProposal"
       },
-      '/Iteration/':{
+      '/Iteration/': {
         code: 200,
         example: "TopicIteration"
       },
@@ -64,24 +76,28 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 200,
         example: "FirstGet"
       },
-      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic':{
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic': {
         code: 200,
         example: "First"
+      },
+      'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/org': {
+        code: 200,
+        example: "GerParentOrg"
       },
       'Project/2ef92afa-5cd6-11ec-bf63-0242ac130002': {
         code: 200,
         example: "FirstGetAllInDetail"
       },
       // DELETE - delete user from Org
-      '/Org/fbbb7610-5cc7-11ec-bf63-0242ac130002/user':{
+      '/Org/fbbb7610-5cc7-11ec-bf63-0242ac130002/user': {
         code: 202
       },
       // POST - add user to Org
-      '/Org/fbbb76e2-5cc7-11ec-bf63-0242ac130002/user/' : {
+      '/Org/fbbb76e2-5cc7-11ec-bf63-0242ac130002/user/': {
         code: 201
       },
       // GET - check if user in Org
-      '/Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/user/' : {
+      '/Org/fbbb7476-5cc7-11ec-bf63-0242ac130002/user/': {
         code: 204,
         example: "UserInOrganization"
       }
@@ -90,17 +106,21 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 201
       },
       // test DELETE
-      '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002':{
+      '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002': {
         code: 202
       }
       ,
       // test GET
-      '/Org/fbbb7a98-5cc7-11ec-bf63-0242ac130002' : {
+      '/Org/fbbb7a98-5cc7-11ec-bf63-0242ac130002': {
         code: 200,
         example: "SchoolProject"
       },
+      '/Org/497f6eca-6276-4993-bfeb-53cbbbba6f08': {
+        code: 200,
+        example: "WorkTeam"
+      },
       // test PUT
-      '/Org/fbbb79c6-5cc7-11ec-bf63-0242ac130002' : {
+      '/Org/fbbb79c6-5cc7-11ec-bf63-0242ac130002': {
         code: 200,
         example: "UpdateOrgInfo"
       }
@@ -109,7 +129,7 @@ export class MockingInterceptor implements HttpInterceptor {
         code: 200,
         example: "BookClub"
       },
-      '/Org' : {
+      '/Org': {
         code: 200,
         example: "NewOrg"
       }

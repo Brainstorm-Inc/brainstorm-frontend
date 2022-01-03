@@ -4,6 +4,7 @@ import {ProjectSummary} from "../models/project.model";
 import {environment} from "../../../environments/environment";
 import {Topic, TopicSummary} from "../models/topic.model";
 import { OmitReadonly } from "src/utility-types";
+import {ParentResponse} from "../models/parentResponse.model";
 
 @Injectable({
     providedIn: 'root'
@@ -24,5 +25,9 @@ export class ProjectService {
 
   addTopic(projectId: string, topic: OmitReadonly<Topic>) {
     return this.httpClient.post<Topic>(`${environment.apiUrl}/Project/${projectId}/topic`, topic);
+  }
+
+  getParentOrg(projectId: string) {
+    return this.httpClient.get<ParentResponse>(`${environment.apiUrl}/Project/${projectId}/org`)
   }
 }

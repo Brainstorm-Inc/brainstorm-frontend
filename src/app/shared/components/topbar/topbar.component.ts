@@ -5,6 +5,9 @@ import {Organization} from "../../models/organization.model";
 import {OrganizationService} from "../../services/organization.service";
 import {AuthenticatedUser} from "../../models/authUser.model";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import bind from "bind-decorator";
+import {ActiveService} from '../../services/active.service';
 
 @Component({
   selector: 'app-topbar',
@@ -18,18 +21,14 @@ export class TopbarComponent implements OnInit {
   public organization!: Organization;
   public loadedData = false;
 
-  constructor(private auth: AuthService, private orgService: OrganizationService, private router: Router) {
+  constructor(private auth: AuthService, private orgService: OrganizationService, private userService: UserService, private router: Router, private active: ActiveService) {
   }
 
   ngOnInit(): void {
-    this.auth.currentUser.subscribe(user => {
-      if (user == null)
-        return;
-      this.orgService.getOrganization("fbbb7a98-5cc7-11ec-bf63-0242ac130002").subscribe(organization => {
-        this.organization = organization;
-        this.loadedData = true;
-      })
+    this.auth.currentUser.subscribe(() => {
+      this.loadOrganization(this.active.organization)
     })
+    this.active.organization$.subscribe(this.loadOrganization)
   }
 
   get isAuthenticated(): boolean {
@@ -45,4 +44,14 @@ export class TopbarComponent implements OnInit {
     this.router.navigate(['/auth'], {queryParams: {returnUrl: this.router.url}})
   }
 
+  @bind
+  loadOrganization(orgId: string | null): void {
+    if (!this.isAuthenticated || orgId == null) return;
+
+    this.loadedData = false;
+    this.orgService.getOrganization(orgId).subscribe(organization => {
+      this.organization = organization;
+      this.loadedData = true;
+    })
+  }
 }

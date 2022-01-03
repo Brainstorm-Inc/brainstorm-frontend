@@ -4,6 +4,7 @@ import {Topic} from "../models/topic.model";
 import {environment} from "../../../environments/environment";
 import {Iteration} from "../models/iteration.model";
 import { OmitReadonly } from 'src/utility-types';
+import {ParentResponse} from "../models/parentResponse.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,8 @@ export class TopicService {
 
   addTopicIteration(topicId: string, iteration: OmitReadonly<Iteration>) {
     return this.http.post(`${environment.apiUrl}/Topic/${topicId}/iterations`, {iteration});
+  }
+  getParentProject(topicId: string) {
+    return this.http.get<ParentResponse>(`${environment.apiUrl}/Topic/${topicId}/project`)
   }
 }
