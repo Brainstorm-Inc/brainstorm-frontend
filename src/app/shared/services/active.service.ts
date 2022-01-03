@@ -8,18 +8,22 @@ import {BindObservable} from "bind-observable";
 import {UserService} from './user.service';
 import {ProjectService} from './project.service';
 import {TopicService} from './topic.service';
+import {StopDuplicates} from "../../../decorators/stopDuplicates";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActiveService {
 
+  @StopDuplicates()
   @BindObservable()
   organization: string | null = null;
   organization$!: Observable<string | null>;
+  @StopDuplicates()
   @BindObservable()
   project: string | null = null;
   project$!: Observable<string | null>;
+  @StopDuplicates()
   @BindObservable()
   topic: string | null = null;
   topic$!: Observable<string | null>;
@@ -29,6 +33,7 @@ export class ActiveService {
     this.router.events.subscribe(this.processRouterEvents)
     this.loadState(this.auth.currentUserValue)
     this.updateState(this.router.routerState.snapshot.root)
+    // DEBUG, see all state changes
     this.organization$.subscribe((val) => console.log("organization: ", val))
     this.project$.subscribe((val) => console.log("project: ", val))
     this.topic$.subscribe((val) => console.log("topic: ", val))
@@ -59,7 +64,6 @@ export class ActiveService {
       this.projectService.getParentOrg(that.project!).subscribe((val) => that.organization = val.parent)
     }
     if (snapshot.url[0].path == 'topic') {
-      this.topic = null;
       this.topic = snapshot.url[1].path;
       const that = this;
       this.topicService.getParentProject(this.topic).subscribe((val) => {
