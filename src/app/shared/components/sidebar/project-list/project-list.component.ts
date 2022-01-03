@@ -55,7 +55,14 @@ export class ProjectListComponent implements OnInit {
     //   creationDate: "2019-08-24T14:15:22Z"
     // };
     //
-    // this.projectService.addTopicToProject("2ef92afa-5cd6-11ec-bf63-0242ac130002", newTopic).subscribe(res => {
+    // const body = {
+    //   title: "New Topic",
+    //   goal: "Find Present",
+    //   files: [],
+    //   deadline: "2019-08-24T14:15:22Z",
+    //   description: "I HAVE IDEA ABOUT PRESENT, this is first iteration description."
+    // }
+    // this.projectService.addTopic("2ef92afa-5cd6-11ec-bf63-0242ac130002", body).subscribe(res => {
     //   console.log(res);
     // });
     // endregion move_to_test

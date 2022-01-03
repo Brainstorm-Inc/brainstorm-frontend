@@ -5,6 +5,8 @@ import {environment} from "../../../environments/environment";
 import {Topic, TopicSummary} from "../models/topic.model";
 import { OmitReadonly } from "src/utility-types";
 import {ParentResponse} from "../models/parentResponse.model";
+import {Iteration} from "../models/iteration.model";
+import {Merge} from "ts-essentials";
 
 @Injectable({
     providedIn: 'root'
@@ -23,7 +25,7 @@ export class ProjectService {
     return this.httpClient.get<Array<TopicSummary>>(`${environment.apiUrl}/Project/${projectId}/topics`);
   }
 
-  addTopic(projectId: string, topic: OmitReadonly<Topic>) {
+  addTopic(projectId: string, topic: Merge<OmitReadonly<Topic>, OmitReadonly<Iteration>>) {
     return this.httpClient.post<Topic>(`${environment.apiUrl}/Project/${projectId}/topic`, topic);
   }
 
