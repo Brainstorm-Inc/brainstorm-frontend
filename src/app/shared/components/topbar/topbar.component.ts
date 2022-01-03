@@ -5,6 +5,7 @@ import {Organization} from "../../models/organization.model";
 import {OrganizationService} from "../../services/organization.service";
 import {AuthenticatedUser} from "../../models/authUser.model";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-topbar',
@@ -18,16 +19,18 @@ export class TopbarComponent implements OnInit {
   public organization!: Organization;
   public loadedData = false;
 
-  constructor(private auth: AuthService, private orgService: OrganizationService, private router: Router) {
+  constructor(private auth: AuthService, private orgService: OrganizationService, private userService: UserService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.auth.currentUser.subscribe(user => {
       if (user == null)
         return;
-      this.orgService.getOrganization("fbbb7a98-5cc7-11ec-bf63-0242ac130002").subscribe(organization => {
-        this.organization = organization;
-        this.loadedData = true;
+      this.userService.getOrganizations(user.id!).subscribe(orgs => {
+        this.orgService.getOrganization(orgs[0]).subscribe(organization => {
+          this.organization = organization;
+          this.loadedData = true;
+        })
       })
     })
   }

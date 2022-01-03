@@ -8,6 +8,8 @@ import {TopicComponent} from "./pages/topic/topic.component";
 const routes: Routes = [{
   path: '', component: HomeComponent, canActivate: [AuthGuard]
 }, {
+  path: 'project/:id', component: HomeComponent, canActivate: [AuthGuard]
+}, {
   path: 'auth', component: AuthComponent
 }, {
   path: 'topic/:id', component: TopicComponent, canActivate: [AuthGuard]

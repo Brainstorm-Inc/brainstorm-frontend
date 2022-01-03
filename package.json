@@ -21,6 +21,8 @@
     "@ngneat/hot-toast": "^3.4.3",
     "@ngneat/overview": "^2.0.2",
     "@ngneat/tailwind": "^7.0.3",
+    "bind-decorator": "^1.0.11",
+    "bind-observable": "^1.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

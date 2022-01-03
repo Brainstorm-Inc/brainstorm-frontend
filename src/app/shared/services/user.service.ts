@@ -19,4 +19,8 @@ export class UserService {
   updateUser(userId: string, user: OmitReadonly<User>) {
     return this.http.put<User>(`${environment.apiUrl}/User/${userId}`, user);
   }
+
+  getOrganizations(userId: string) {
+    return this.http.get<Array<string>>(`${environment.apiUrl}/User/${userId}/orgs`)
+  }
 }
