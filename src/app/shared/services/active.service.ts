@@ -29,6 +29,9 @@ export class ActiveService {
     this.router.events.subscribe(this.processRouterEvents)
     this.loadState(this.auth.currentUserValue)
     this.updateState(this.router.routerState.snapshot.root)
+    this.organization$.subscribe((val) => console.log("organization: ", val))
+    this.project$.subscribe((val) => console.log("project: ", val))
+    this.topic$.subscribe((val) => console.log("topic: ", val))
   }
 
   @bind
@@ -53,7 +56,7 @@ export class ActiveService {
       this.topic = null;
       this.project = snapshot.url[1].path;
       const that = this;
-      this.projectService.getParentOrg(this.project).subscribe((val) => that.organization = val.parent)
+      this.projectService.getParentOrg(that.project!).subscribe((val) => that.organization = val.parent)
     }
     if (snapshot.url[0].path == 'topic') {
       this.topic = null;
