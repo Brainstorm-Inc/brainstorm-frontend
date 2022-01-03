@@ -20,6 +20,7 @@ import {ErrorInterceptor} from "./shared/helpers/error.interceptor";
 import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
 import { TopbarComponent } from './shared/components/topbar/topbar.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import {ProjectPage} from "./pages/project/project/project-page.component";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ProjectListComponent,
     SafeHtmlPipe,
     ProjectComponent,
+    ProjectPage,
     TopbarComponent
   ],
   imports: [

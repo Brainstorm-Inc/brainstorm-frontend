@@ -4,11 +4,12 @@ import {AuthComponent} from './pages/auth/auth.component';
 import {HomeComponent} from "./pages/home/home.component";
 import {AuthGuard} from "./shared/helpers/auth.guard";
 import {TopicComponent} from "./pages/topic/topic.component";
+import {ProjectPage} from "./pages/project/project/project-page.component";
 
 const routes: Routes = [{
   path: '', component: HomeComponent, canActivate: [AuthGuard]
 }, {
-  path: 'project/:id', component: HomeComponent, canActivate: [AuthGuard]
+  path: 'project/:id', component: ProjectPage, canActivate: [AuthGuard]
 }, {
   path: 'auth', component: AuthComponent
 }, {
