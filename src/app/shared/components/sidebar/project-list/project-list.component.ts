@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ProjectService} from "../../../services/project.service";
 import {OrganizationService} from "../../../services/organization.service";
+import {ActiveService} from 'src/app/shared/services/active.service';
+import bind from "bind-decorator";
 
 @Pipe({name: "safeHtml"})
 export class SafeHtmlPipe implements PipeTransform {
@@ -29,7 +31,7 @@ export class ProjectListComponent implements OnInit {
     topics: [],
   }
 
-  constructor(private router: Router, private projectService: ProjectService, private orgService: OrganizationService) {
+  constructor(private router: Router, private projectService: ProjectService, private orgService: OrganizationService, private active: ActiveService) {
   }
 
   ngOnInit(): void {
@@ -57,22 +59,8 @@ export class ProjectListComponent implements OnInit {
     //   console.log(res);
     // });
     // endregion move_to_test
-    this.orgService.getProjects('fbbb7476-5cc7-11ec-bf63-0242ac130002').subscribe(listOfIds => {
-      listOfIds.map((projId) => {
-        this.projectService.getProjectInfo(projId).subscribe(projInfo => {
-          console.log("project data retrieved");
-          this.projectService.getTopics("2ef92afa-5cd6-11ec-bf63-0242ac130002").subscribe(topics => {
-            console.log("topics from project were retrieved")
-            let proj = {
-              ...projInfo,
-              topics: topics
-            }
-            this.projects.push(proj);
-          })
-        });
-      })
-    })
-
+    this.active.organization$.subscribe(this.loadProjects)
+    this.loadProjects(this.active.organization);
     // region move_to_test_2
     // this.projects.push({
     //   id: 'bla',
@@ -120,6 +108,30 @@ export class ProjectListComponent implements OnInit {
 
   goToDetail() {
     this.router.navigate(['project/detail', this.selectedProject.id]);
+  }
+
+  @bind
+  loadProjects(orgId: string | null) {
+    if (orgId == null) {
+      return;
+    }
+    const projects: Array<Project> = [];
+    this.orgService.getProjects(orgId).subscribe(listOfIds => {
+      listOfIds.map((projId) => {
+        this.projectService.getProjectInfo(projId).subscribe(projInfo => {
+          console.log("project data retrieved");
+          this.projectService.getTopics(projId).subscribe(topics => {
+            console.log("topics from project were retrieved")
+            let proj = {
+              ...projInfo,
+              topics: topics
+            }
+            projects.push(proj);
+          })
+        });
+      })
+    })
+    this.projects = projects;
   }
 
 }
