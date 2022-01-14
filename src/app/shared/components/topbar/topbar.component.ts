@@ -19,7 +19,9 @@ export class TopbarComponent implements OnInit {
   ButtonType = ButtonType
 
   public organization!: Organization;
+  public organizations: Organization[] = [];
   public loadedData = false;
+  public openMenu = false;
 
   constructor(private auth: AuthService, private orgService: OrganizationService, private userService: UserService, private router: Router, private active: ActiveService) {
   }
@@ -29,6 +31,13 @@ export class TopbarComponent implements OnInit {
       this.loadOrganization(this.active.organization)
     })
     this.active.organization$.subscribe(this.loadOrganization)
+    this.userService.getOrganizations(this.auth.currentUserValue!.id).subscribe(organizations => {
+      let orgs: Organization[] = [];
+      organizations.map(org => this.orgService.getOrganization(org).subscribe(organization => {
+        orgs.push(organization)
+      }))
+      this.organizations = orgs;
+    })
   }
 
   get isAuthenticated(): boolean {
@@ -43,6 +52,10 @@ export class TopbarComponent implements OnInit {
     this.auth.logout()
     this.router.navigate(['/auth'], {queryParams: {returnUrl: this.router.url}})
   }
+
+  updateOrganization(org: string) {
+    return this.active.updateOrganization(org)
+}
 
   @bind
   loadOrganization(orgId: string | null): void {

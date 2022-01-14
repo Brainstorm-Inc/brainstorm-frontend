@@ -49,6 +49,14 @@ export class ActiveService {
     }
   }
 
+  public async updateOrganization(organization: string) {
+    if(this.organization === organization) return;
+    await this.router.navigate(['/'])
+    this.topic = null;
+    this.project = null;
+    this.organization = organization;
+  }
+
   @bind
   updateState(snapshot: ActivatedRouteSnapshot) {
     console.log("ActivationStart", snapshot)

@@ -4,7 +4,7 @@
     <app-button [colorType]="ColorType.primary" [type]="ButtonType.outline" text="Login"></app-button>
   </div>
   <div *ngIf="isAuthenticated" class="flex flex-1 items-center justify-between">
-    <div class="flex justify-start items-center space-x-2">
+    <button (click)="openMenu = !openMenu" class="relative flex justify-start items-center space-x-2 pl-4">
       <div class="h-12 w-12">
         <img
           [src]="!loadedData ? 'https://via.placeholder.com/100/231E23/DEEEEA/?text=Loading...' : organization.logo"/>
@@ -13,7 +13,23 @@
         <span class="text-xl">{{!loadedData ? "Loading..." : organization.name}}</span>
         <span>{{!loadedData ? "Loading..." : currentUser.email}}</span>
       </div>
-    </div>
+      <div class="absolute w-full bottom-0">
+        <div
+          *ngIf="openMenu"
+          class="absolute -left-4 top-1 bg-background-light flex flex-col justify-start items-start p-2 shadow-lg divide-y divide-gray-500 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <button (click)="updateOrganization(org.id)"
+                  *ngFor="let org of organizations" class="relative flex justify-start items-center space-x-2 py-2 w-full select-none">
+            <div class="h-12 w-12">
+              <img
+                [src]="!loadedData ? 'https://via.placeholder.com/100/231E23/DEEEEA/?text=Loading...' : org.logo"/>
+            </div>
+            <div class="flex flex-col justify-evenly items-start">
+              <span class="text-xl">{{!loadedData ? "Loading..." : org.name}}</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </button>
     <app-button (click)="logOut()" text="Log Out"></app-button>
   </div>
 </div>
