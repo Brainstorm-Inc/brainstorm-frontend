@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import bind from "bind-decorator";
 import {ActiveService} from '../../services/active.service';
+import {DialogService} from "@ngneat/dialog";
+import {CreateOrgComponent} from "./create-org/create-org.component";
 
 @Component({
   selector: 'app-topbar',
@@ -23,7 +25,7 @@ export class TopbarComponent implements OnInit {
   public loadedData = false;
   public openMenu = false;
 
-  constructor(private auth: AuthService, private orgService: OrganizationService, private userService: UserService, private router: Router, private active: ActiveService) {
+  constructor(private auth: AuthService, private orgService: OrganizationService, private userService: UserService, private router: Router, private active: ActiveService, private dialog: DialogService) {
   }
 
   ngOnInit(): void {
@@ -51,6 +53,11 @@ export class TopbarComponent implements OnInit {
   logOut(): void {
     this.auth.logout()
     this.router.navigate(['/auth'], {queryParams: {returnUrl: this.router.url}})
+  }
+
+  openCreateOrg(): void {
+    let dialogRef = this.dialog.open(CreateOrgComponent)
+    console.log(dialogRef)
   }
 
   updateOrganization(org: string) {

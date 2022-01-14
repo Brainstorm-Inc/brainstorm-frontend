@@ -21,6 +21,8 @@ import {MockingInterceptor} from "./shared/helpers/mocking.interceptor";
 import { TopbarComponent } from './shared/components/topbar/topbar.component';
 import { HotToastModule } from '@ngneat/hot-toast';
 import {ProjectPage} from "./pages/project/project/project-page.component";
+import { DialogModule } from '@ngneat/dialog';
+import { CreateOrgComponent } from './shared/components/topbar/create-org/create-org.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {ProjectPage} from "./pages/project/project/project-page.component";
     SafeHtmlPipe,
     ProjectComponent,
     ProjectPage,
-    TopbarComponent
+    TopbarComponent,
+    CreateOrgComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,16 @@ import {ProjectPage} from "./pages/project/project/project-page.component";
     ReactiveFormsModule,
     HotToastModule.forRoot({
       position: "bottom-center"
+    }),
+    DialogModule.forRoot({
+      sizes: {
+        sm: {
+          width: '300px',
+          height: '250px'
+        },
+        // You can customize the default sizes
+        // ...
+      }
     })
   ],
   providers: [
