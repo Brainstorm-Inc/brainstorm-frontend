@@ -139,6 +139,10 @@ export class MockingInterceptor implements HttpInterceptor {
         '/Org/fbbb7548-5cc7-11ec-bf63-0242ac130002/project': {
           code: 201
         },
+        '/Org': {
+          code: 200,
+          example: "NewOrg"
+        },
       },
       PUT: {
         '/Org/fbbb79c6-5cc7-11ec-bf63-0242ac130002': {

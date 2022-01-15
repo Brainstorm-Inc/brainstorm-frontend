@@ -1,4 +1,28 @@
-<div class="w-full h-72 bg-background text-white">
-  <h1>Here you will be able to create an organization</h1>
-  <button (click)="ref.close()">Close</button>
+<div class="w-full min-h-72 bg-background text-white p-10 flex flex-col space-y-5">
+  <div class="text-3xl">
+    Create organization
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="createForm" class="flex flex-col justify-center items-center divide-y divide-gray-500">
+    <div class="flex flex-col w-full space-y-2 py-2">
+      <div class="w-full flex justify-start items-center space-x-2">
+        <label class="flex-initial text-lg">Name</label>
+        <input class="flex-1 text-black"
+               formControlName="name"
+               type="text"/></div>
+    </div>
+    <div class="flex flex-col w-full space-y-2 py-2">
+      <div class="w-full flex flex-col justify-evenly items-start">
+        <label class="block mb-1 text-lg font-medium text-white" for="user_avatar">Upload
+          Logo</label>
+        <input
+          (change)="onFileChange($event)"
+          accept="image/*"
+          aria-describedby="user_avatar_help" class="block w-full text-sm text-white bg-background-light rounded-lg border border-gray-300 cursor-pointer focus:outline-none focus:border-transparent" formControlName="logo" id="user_avatar" type="file">
+        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">The logo of your organization
+        </div>
+      </div>
+    </div>
+    <app-button [disabled]="createForm.invalid" text="Create org" class="py-2 w-full"></app-button>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  </form>
 </div>
