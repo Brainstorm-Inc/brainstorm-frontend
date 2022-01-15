@@ -23,6 +23,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import {ProjectPage} from "./pages/project/project/project-page.component";
 import { DialogModule } from '@ngneat/dialog';
 import { CreateOrgComponent } from './shared/components/topbar/create-org/create-org.component';
+import { CreateProjectComponent } from './shared/components/sidebar/create-project/create-project.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CreateOrgComponent } from './shared/components/topbar/create-org/create
     ProjectComponent,
     ProjectPage,
     TopbarComponent,
-    CreateOrgComponent
+    CreateOrgComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,

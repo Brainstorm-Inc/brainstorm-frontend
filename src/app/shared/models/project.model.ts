@@ -1,7 +1,7 @@
 import {TopicSummary} from "./topic.model";
 
 export interface ProjectSummary {
-  id: string;
+  readonly id: string;
   name: string;
 }
 

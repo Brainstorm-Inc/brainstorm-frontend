@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ProjectSummary} from "../models/project.model";
+import {Project, ProjectSummary} from "../models/project.model";
 import {environment} from "../../../environments/environment";
 import {Topic, TopicSummary} from "../models/topic.model";
 import { OmitReadonly } from "src/utility-types";
