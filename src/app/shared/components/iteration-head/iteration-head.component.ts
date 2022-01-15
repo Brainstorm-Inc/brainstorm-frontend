@@ -6,7 +6,6 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-iteration-head',
   templateUrl: './iteration-head.component.html',
-  styleUrls: ['./iteration-head.component.css']
 })
 export class IterationHeadComponent implements OnInit {
 
