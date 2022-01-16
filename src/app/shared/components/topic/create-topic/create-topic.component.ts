@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {DialogRef} from "@ngneat/dialog";
-import {ButtonType, ColorType } from 'src/app/shared/components/button/types';
+import {ButtonType, ColorType} from 'src/app/shared/components/button/types';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectService} from "../../../services/project.service";
 import {Topic} from "../../../models/topic.model";
 import {HotToastService} from "@ngneat/hot-toast";
-import {bufferCount, catchError, map, mergeMap} from "rxjs/operators";
-import { Observable, of} from "rxjs";
+import {bufferCount, catchError, map, mergeMap, toArray} from "rxjs/operators";
+import {Observable, of} from "rxjs";
 import {ImgbbService} from "../../../services/imgbb.service";
 import {ActiveService} from "../../../services/active.service";
 
@@ -71,17 +71,22 @@ export class CreateTopicComponent implements OnInit {
     const input = event.target as HTMLInputElement;
 
     if (input.files && input.files.length) {
-      of(...Array.from(input.files)).pipe(mergeMap((val) =>
-        new Observable<string>((obs) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(val);
-          reader.onload = () => {
-            obs.next(reader.result as string)
-          };
+      of(...Array.from(input.files)).pipe(
+        mergeMap((val) =>
+          new Observable<string>((obs) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(val);
+            reader.onload = () => {
+              obs.next(reader.result as string);
+              obs.complete();
+            };
+          })
+        ), toArray()).subscribe(x => {
+        console.log(x);
+        this.createTopicForm.patchValue({
+          files: x
         })
-      ), bufferCount(input.files.length)).subscribe(x => this.createTopicForm.patchValue({
-        files: x
-      }));
+      });
     }
   }
 }
