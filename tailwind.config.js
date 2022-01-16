@@ -56,9 +56,13 @@ module.exports = {
       },
       minHeight: {
         '72': "18rem",
+        '12': "3rem"
       },
       inset: {
         '5.5': "1.40rem"
+      },
+      borderWidth: {
+        '1': '1px',
       }
     },
   },

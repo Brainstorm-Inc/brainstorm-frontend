@@ -27,6 +27,8 @@ import { CreateProjectComponent } from './shared/components/sidebar/create-proje
 import { CreateTopicComponent } from './shared/components/topic/create-topic/create-topic.component';
 import { EventComponent } from './shared/components/timeline/event/event.component';
 import { ProposalComponent } from './shared/components/timeline/proposal/proposal.component';
+import { CommentSectionComponent } from './shared/components/timeline/comment-section/comment-section.component';
+import { CommentComponent } from './shared/components/timeline/comment-section/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ProposalComponent } from './shared/components/timeline/proposal/proposa
     CreateTopicComponent,
     CreateProjectComponent,
     EventComponent,
-    ProposalComponent
+    ProposalComponent,
+    CommentSectionComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

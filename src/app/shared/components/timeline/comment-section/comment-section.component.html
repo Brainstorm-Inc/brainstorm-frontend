@@ -1,0 +1,21 @@
+<div class="h-full w-full bg-background flex flex-col divide-y divide-primary text-white overflow-auto shadow-large-outer">
+  <div class="flex justify-between items-center px-4 py-2">
+    <div class="flex flex-col justify-center items-start">
+      <p class="text-xl h-6">Comments</p>
+      <p class="text-sm font-light italic text-accent-darker">in Present for Ioana</p>
+    </div>
+    <button class="w-8 h-8 flex-shrink-0 material-icons text-3xl flex justify-end items-center hover:text-primary">
+    close
+    </button>
+  </div>
+  <div class="w-full px-4 py-2">
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="anton" content="Putem sa-i cumparam o cana!" [rating]="rating"></app-comment>
+  </div>
+  <div class="w-full px-4 flex flex-col justify-start items-start space-y-2 pt-2">
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="andreea" content="Genial..." [rating]="rating3"></app-comment>
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="gigel" content="Ne mai putem gandi" [rating]="rating3"></app-comment>
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="andreea" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallis diam imperdiet convallis in. Mollis senectus suspendisse elit egestas lacus aenean nisi, auctor." [rating]="rating3"></app-comment>
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="andreea" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallis diam imperdiet convallis in. Mollis senectus suspendisse elit egestas lacus aenean nisi, auctor." [rating]="rating3"></app-comment>
+    <app-comment [id]="'daome-id'" [creationDate]="getCreationDate()" [author]="ileana" content="Ma gandeam sa ii cumparam perechea aia de casti pe care am auzit ca si-o doreste mult!" [rating]="rating2" [proposal]="'some proposal'"></app-comment>
+  </div>
+</div>
