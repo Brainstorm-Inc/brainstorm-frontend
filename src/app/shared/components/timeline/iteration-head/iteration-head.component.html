@@ -4,29 +4,29 @@
   <div class="ml-7">
     <div class="w-3/4 bg-background rounded-2xl shadow-large-outer">
       <div
-        class="relative py-4 pl-6 pr-10 flex justify-between items-center text-xl rounded-2xl bg-background-light text-accent-darker">
+        class="relative py-4 pl-6 pr-10 flex justify-between items-center text-xl rounded-2xl bg-background-light text-accent">
         <div
           [ngStyle]="{'border-top': '1rem solid transparent', 'border-bottom': '1rem solid transparent', 'border-right': '1rem solid #363536'}"
           class="absolute w-0 h-0 right-full"></div>
-        <label class="flex items-center justify-evenly">
+        <label class="flex items-center justify-evenly font-light">
           {{creator.firstName}} posted {{getSpentTime()}} ago
         </label>
-        <div class="flex items-center justify-evenly space-x-5 select-none">
+        <div class="flex items-center justify-evenly space-x-5 select-none text-accent-darker">
           <span class="material-icons transform hover:scale-125 cursor-pointer">tag_faces</span>
           <span class="material-icons transform hover:scale-125 cursor-pointer">dehaze</span>
         </div>
       </div>
       <div class="w-full flex text-xl text-accent-darker">
         <div class="flex flex-col w-3/4">
-          <label class="p-5 text-2xl">
+          <label class="p-5 text-2xl text-white">
             {{headline}}
           </label>
-          <label class="px-5 pb-5">
+          <label class="px-5 pb-5 text-white">
             {{subtext}}
           </label>
         </div>
         <div class="flex flex-col w-1/4 p-5">
-          <div class="p-2 float-left">
+          <div class="p-2 float-left text-accent">
             <label>
               Goal:
             </label>
