@@ -1,10 +1,52 @@
 import {Component, OnInit} from '@angular/core';
+import {ProposalInput} from "../../shared/components/timeline/proposal/proposal.component";
 
 @Component({
   selector: '[page-topic]',
   templateUrl: './topic.component.html',
 })
 export class TopicComponent implements OnInit {
+
+  public proposal: ProposalInput = {
+    id: 'some-id',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem.',
+    author: {
+      firstName: 'Maria',
+      lastName: 'Liam',
+      email: 'maria.liam@gmail.com',
+      profilePic: 'https://i.pravatar.cc/150?u=marios'
+    },
+    creationDate: '2022-01-16T12:06:51.384Z',
+    files: [],
+    comments: {
+      lastActiveUsers: [],
+      commentsAmount: 0,
+      lastCommentDate: '2022-01-16T12:06:51.384Z',
+    },
+    rating: {
+      1: 1, 2: 2, 3: 3, 4: 0, 5: 0, yourVote: [], average: 3.5
+    }
+  }
+  public proposal2: ProposalInput = {
+    id: 'some-id',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem.',
+    author: {
+      firstName: 'Ileana',
+      lastName: 'Popa',
+      email: 'ileana.popa@gmail.com',
+      profilePic: 'https://i.pravatar.cc/150?u=gigel'
+    },
+    creationDate: '2022-01-16T12:06:51.384Z',
+    files: [],
+    comments: {
+      lastActiveUsers: [],
+      commentsAmount: 0,
+      lastCommentDate: '2022-01-16T12:06:51.384Z',
+    },
+    rating: {
+      1: 1, 2: 2, 3: 3, 4: 0, 5: 0, yourVote: [], average: 2
+    }
+  }
 
   constructor() {
   }

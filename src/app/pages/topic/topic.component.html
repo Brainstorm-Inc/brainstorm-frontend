@@ -5,32 +5,20 @@
       <li>
         <app-iteration-head
           [creationDate]="getCreationDate()"
-          [creator]="{firstName: 'Gigel', lastName: 'Anton', email: 'gigel.anton@gmail.com', profilePic: 'https://i.pravatar.cc/150?u=gigel'}"
+          [creator]="{firstName: 'Gigel', lastName: 'Anton', email: 'gigel.anton@gmail.com', profilePic: 'https://i.pravatar.cc/150?u=gigelan'}"
           [deadline]="getDeadline()"
           goal="Reach an agreement with the management team."
           headline="We want more money!"
           subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem."></app-iteration-head>
+      </li>
+      <li>
+        <app-proposal [proposal]="proposal"></app-proposal>
       </li>
       <li>
         <app-event></app-event>
       </li>
       <li>
-        <app-iteration-head
-          [creationDate]="getCreationDate()"
-          [creator]="{firstName: 'Gigel', lastName: 'Anton', email: 'gigel.anton@gmail.com', profilePic: 'https://i.pravatar.cc/150?u=gigel'}"
-          [deadline]="getDeadline()"
-          goal="Reach an agreement with the management team."
-          headline="We want more money!"
-          subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem."></app-iteration-head>
-      </li>
-      <li>
-        <app-iteration-head
-          [creationDate]="getCreationDate()"
-          [creator]="{firstName: 'Gigel', lastName: 'Anton', email: 'gigel.anton@gmail.com', profilePic: 'https://i.pravatar.cc/150?u=gigel'}"
-          [deadline]="getDeadline()"
-          goal="Reach an agreement with the management team."
-          headline="We want more money!"
-          subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem."></app-iteration-head>
+        <app-proposal [proposal]="proposal2"></app-proposal>
       </li>
     </ul>
   </div>

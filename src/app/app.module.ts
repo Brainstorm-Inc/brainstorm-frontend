@@ -26,6 +26,7 @@ import { CreateOrgComponent } from './shared/components/topbar/create-org/create
 import { CreateProjectComponent } from './shared/components/sidebar/create-project/create-project.component';
 import { CreateTopicComponent } from './shared/components/topic/create-topic/create-topic.component';
 import { EventComponent } from './shared/components/timeline/event/event.component';
+import { ProposalComponent } from './shared/components/timeline/proposal/proposal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EventComponent } from './shared/components/timeline/event/event.compone
     CreateOrgComponent,
     CreateTopicComponent,
     CreateProjectComponent,
-    EventComponent
+    EventComponent,
+    ProposalComponent
   ],
   imports: [
     BrowserModule,

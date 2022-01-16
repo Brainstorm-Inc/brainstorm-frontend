@@ -1,0 +1,55 @@
+<div class="flex items-start justify-start">
+  <div
+    [ngStyle]="{'background-image': 'url(' + (proposal.author.profilePic ?? 'https://i.pravatar.cc/300?u='+proposal.author.firstName+proposal.author.lastName) + ')'}"
+    class="w-12 h-12 flex-shrink-0 rounded-full mt-1 bg-center bg-origin-content bg-cover shadow-small-outer"></div>
+  <div class="ml-7">
+    <div class="w-3/4 bg-background rounded-2xl shadow-large-outer">
+      <div
+        class="relative py-4 pl-6 pr-10 flex justify-between items-center text-xl rounded-2xl bg-background-light text-accent">
+        <div
+          [ngStyle]="{'border-top': '1rem solid transparent', 'border-bottom': '1rem solid transparent', 'border-right': '1rem solid #363536'}"
+          class="absolute w-0 h-0 right-full"></div>
+        <label class="flex items-center justify-evenly font-light">
+          {{proposal.author.firstName}} posted {{getSpentTime()}} ago
+        </label>
+        <div class="flex items-center justify-evenly space-x-5 select-none text-accent-darker">
+          <span class="material-icons transform hover:scale-125 cursor-pointer">tag_faces</span>
+          <span class="material-icons transform hover:scale-125 cursor-pointer">dehaze</span>
+        </div>
+      </div>
+      <div class="w-full flex text-xl text-accent-darker">
+        <div class="flex flex-col w-5/6">
+          <label class="pl-5 py-5 text-white">
+            {{proposal.description}}
+          </label>
+        </div>
+        <div class="flex items-end w-1/6 py-5 pr-7">
+          <div class="h-full w-full text-accent relative">
+            <div
+              class="absolute top-0 bottom-0 right-0 h-full border-r-8 border-accent-darker z-0 shadow-small-outer rounded-full"></div>
+            <div [ngClass]="{'h-1/5 border-red-600': 1 <= proposal.rating.average &&  proposal.rating.average < 2,'h-2/5 border-red-400': 2 <= proposal.rating.average && proposal.rating.average < 3,'h-3/5 border-secondary': 3 <= proposal.rating.average && proposal.rating.average < 4,'h-4/5 border-indigo-400': 4 <= proposal.rating.average && proposal.rating.average < 5,'h-full border-primary': 5 <= proposal.rating.average}"
+                 class="absolute bottom-0 right-0 border-r-8 z-0 shadow-small-outer rounded-full"
+            ></div>
+            <ul class="w-full flex flex-col justify-between items-end pr-5 space-y-4 text-md">
+              <li class="cursor-pointer transform hover:scale-125">
+                😍
+              </li>
+              <li class="cursor-pointer transform hover:scale-125">
+                😄
+              </li>
+              <li class="cursor-pointer transform hover:scale-125">
+                😐
+              </li>
+              <li class="cursor-pointer transform hover:scale-125">
+                ☹️
+              </li>
+              <li class="cursor-pointer transform hover:scale-125">
+                😠
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

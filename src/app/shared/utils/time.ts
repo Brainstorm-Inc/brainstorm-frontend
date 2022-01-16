@@ -11,6 +11,8 @@ export function getTimeDifferenceAsString(date: Date) {
       return months + " months";
     case days >= 1:
       return days + " days";
+    case hours >= 1:
+      return hours + " hours";
     case minutes >= 1:
       return minutes + " minutes";
     default:
