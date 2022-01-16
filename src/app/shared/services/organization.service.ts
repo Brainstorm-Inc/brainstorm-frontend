@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {environment} from "../../../environments/environment";
 import {Organization} from "../models/organization.model";
-import {ProjectSummary} from "../models/project.model";
+import {Project, ProjectSummary} from "../models/project.model";
 import {OmitReadonly} from "../../../utility-types";
 
 @Injectable({
@@ -47,7 +47,7 @@ export class OrganizationService {
   }
 
   addProject(orgId: string, project: OmitReadonly<ProjectSummary>) {
-    return this.http.post(`${environment.apiUrl}/Org/${orgId}/project`, project);
+    return this.http.post<Project>(`${environment.apiUrl}/Org/${orgId}/project`, project);
   }
 
   getProjects(orgId: string) {
