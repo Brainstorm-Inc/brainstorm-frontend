@@ -1,8 +1,9 @@
-<div class="w-full min-h-72 bg-background text-white p-10 flex flex-col space-y-5">
+<div class="w-full min-h-72 bg-background text-white p-10 flex flex-col justify-start space-y-5">
   <div class="text-3xl">
     Create project
   </div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="createForm" class="flex flex-col justify-center items-center divide-y divide-gray-500">
+  <form (ngSubmit)="onSubmit()" [formGroup]="createForm"
+        class="flex flex-col justify-center items-center divide-y divide-gray-500">
     <div class="flex flex-col w-full space-y-2 py-2">
       <div class="w-full flex justify-start items-center space-x-2">
         <label class="flex-initial text-lg">Name</label>
@@ -10,7 +11,7 @@
                formControlName="name"
                type="text"/></div>
     </div>
-    <app-button [disabled]="createForm.invalid" text="Create project" class="py-2 w-full"></app-button>
+    <app-button [disabled]="createForm.invalid" class="py-2 w-full" text="Create project"></app-button>
     <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
   </form>
 </div>
