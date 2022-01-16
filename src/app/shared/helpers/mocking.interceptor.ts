@@ -147,6 +147,10 @@ export class MockingInterceptor implements HttpInterceptor {
           code: 200,
           example: "NewOrg"
         },
+        '/Project/2ef92afa-5cd6-11ec-bf63-0242ac130002/topic': {
+          code: 200,
+          example: "SimpleTopicCreated"
+        }
       },
       PUT: {
         '/Org/fbbb79c6-5cc7-11ec-bf63-0242ac130002': {

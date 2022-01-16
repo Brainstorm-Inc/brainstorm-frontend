@@ -1,0 +1,67 @@
+<div class="w-full min-h-90 bg-background text-white p-10 flex flex-col items-center space-y-5">
+  <div class="text-3xl">
+    Create topic
+  </div>
+<form (ngSubmit)="onSubmit()" [formGroup]="createTopicForm" class="flex flex-col justify-center items-center divide-y divide-gray-500">
+    <div class="flex flex-col w-full space-y-2 py-2">
+      <div class="w-full flex justify-start items-center space-x-2">
+        <label class="flex-1">Title </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.title.errors }" class="flex-1 text-black"
+               formControlName="title"
+                type="text">
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+          <div *ngIf="f.title.errors.required" class="text-error">Title is required</div>
+        </div>
+      </div>
+    </div>
+
+  <div class="flex flex-col w-full space-y-2 py-2">
+    <div class="w-full flex justify-start items-center space-x-2">
+        <label class="flex-1">Goal </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.goal.errors }" class="flex-1 text-black"
+               formControlName="goal"
+               type="text">
+        <div *ngIf="submitted && f.goal.errors" class="invalid-feedback">
+          <div *ngIf="f.goal.errors.required" class="text-error">Goal is required</div>
+        </div>
+      </div>
+    </div>
+
+  <div class="flex flex-col w-full space-y-2 py-2">
+    <div class="w-full flex justify-start items-center space-x-2">
+        <label class="flex-1">Description </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.description.errors }" class="flex-1 text-black"
+               formControlName="description"
+               type="text">
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required" class="text-error">Description is required</div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="flex flex-col w-full space-y-2 py-2">
+    <div class="w-full flex justify-start items-center space-x-2">
+        <label class="flex-1">Deadline </label>
+        <input class="flex-1 text-black"
+               formControlName="deadline"
+               type="date" >
+      </div>
+  </div>
+
+  <div class="flex flex-col w-full space-y-2 py-2">
+    <div class="w-full flex flex-col justify-evenly items-start">
+      <label class="block mb-1 text-lg font-medium text-white" for="user_avatar">Upload
+        Files</label>
+      <input
+        (change)="onFileChange($event)"
+        accept="image/*"
+        aria-describedby="user_avatar_help" class="block w-full text-sm text-white bg-background-light rounded-lg border border-gray-300 cursor-pointer focus:outline-none focus:border-transparent"
+        formControlName="files" id="user_avatar" type="file" multiple>
+    </div>
+  </div>
+
+    <app-button [colorType]="ColorType.primary" [type]="ButtonType.filled" text="Save"></app-button>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  </form>
+</div>

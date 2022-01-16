@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ProjectService} from 'src/app/shared/services/project.service';
 import {ActiveService} from "../../../shared/services/active.service";
+import {ButtonType, ColorType } from 'src/app/shared/components/button/types';
 import bind from "bind-decorator";
+import {DialogService} from "@ngneat/dialog";
+import {CreateTopicComponent} from "../../../shared/components/topic/create-topic/create-topic.component";
 
 @Component({
   selector: '[page-project]',
@@ -9,7 +12,12 @@ import bind from "bind-decorator";
 })
 export class ProjectPage implements OnInit {
 
-  constructor(private active: ActiveService, private projectService: ProjectService) {
+  ColorType = ColorType
+  ButtonType = ButtonType
+
+  constructor(private active: ActiveService,
+              private projectService: ProjectService,
+              private dialogService: DialogService) {
   }
 
   topics: string[] = [];
@@ -26,6 +34,10 @@ export class ProjectPage implements OnInit {
     }
     let that = this;
     this.projectService.getTopics(projectId).subscribe((val) => that.topics = val.map((topic) => topic.id))
+  }
+
+  createTopic() {
+    this.dialogService.open(CreateTopicComponent);
   }
 
 }
