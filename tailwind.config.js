@@ -43,6 +43,8 @@ module.exports = {
       },
       boxShadow: {
         'inner-strong': "inset 4px 4px 4px rgba(0, 0, 0, 0.25)",
+        'large-outer': "12px 4px 5px 1px rgba(0, 0, 0, 0.25)",
+        'small-outer': "4px 4px 4px rgba(0, 0, 0, 0.25)",
       },
       zIndex: {
         9999999: "9999999"
