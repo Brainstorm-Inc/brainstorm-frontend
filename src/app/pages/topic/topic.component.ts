@@ -51,7 +51,7 @@ export class TopicComponent implements OnInit {
   }
   public proposal2: ProposalInput = {
     id: 'some-id2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem.',
+    description: 'Ii vom cumpara perechea aia de casti pe care o dorea de mult!',
     author: {
       firstName: 'Ileana',
       lastName: 'Popa',
