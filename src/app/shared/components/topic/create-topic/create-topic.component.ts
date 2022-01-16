@@ -9,6 +9,7 @@ import {bufferCount, catchError, map, mergeMap, toArray} from "rxjs/operators";
 import {Observable, of} from "rxjs";
 import {ImgbbService} from "../../../services/imgbb.service";
 import {ActiveService} from "../../../services/active.service";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: './create-topic.component.html',
@@ -28,7 +29,7 @@ export class CreateTopicComponent implements OnInit {
               private cd: ChangeDetectorRef,
               private toast: HotToastService,
               private imgbb: ImgbbService,
-              private active: ActiveService) {
+              private active: ActiveService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -61,9 +62,15 @@ export class CreateTopicComponent implements OnInit {
         description: this.f.description.value,
         deadline: (new Date(this.f.deadline.value)).toISOString().toString(),
         files: res
-      })), catchError((error) => of(error))).subscribe((res: Topic) => {
+      })), this.toast.observe(
+        {
+          loading: 'Creating topic...',
+          success: (s) => "Topic created successfully, navigating!",
+          error: (e) => 'Something did not work, reason: ' + e,
+        }
+      ), catchError((error) => of(error))).subscribe((res: Topic) => {
       this.ref.close();
-      console.log("topic created with id: ", res.id)
+      this.router.navigate(['/topic', res.id]);
     })
   }
 
