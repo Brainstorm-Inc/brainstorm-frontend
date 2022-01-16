@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../../models/user.model";
-import {getTimeDifferenceAsString} from "../../utils/time";
+import {User} from "../../../models/user.model";
+import {getTimeDifferenceAsString} from "../../../utils/time";
 import { DatePipe } from '@angular/common';
 
 @Component({

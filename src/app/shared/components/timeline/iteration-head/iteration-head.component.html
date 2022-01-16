@@ -1,0 +1,49 @@
+<div class="flex items-start justify-start">
+  <div [ngStyle]="{'background-image': 'url(' + 'https://i.pravatar.cc/300?u=gigel' + ')'}"
+       class="w-12 h-12 flex-shrink-0 rounded-full mt-1 bg-center bg-origin-content bg-cover"></div>
+  <div class="ml-7">
+    <div class="w-3/4 bg-background rounded-2xl shadow-lg">
+      <div
+        class="relative py-4 pl-6 pr-10 flex justify-between items-center text-xl rounded-2xl bg-background-light text-accent-darker">
+        <div
+          [ngStyle]="{'border-top': '1rem solid transparent', 'border-bottom': '1rem solid transparent', 'border-right': '1rem solid #363536'}"
+          class="absolute w-0 h-0 right-full"></div>
+        <label class="flex items-center justify-evenly">
+          {{creator.firstName}} posted {{getSpentTime()}} ago
+        </label>
+        <div class="flex items-center justify-evenly space-x-5 select-none">
+          <span class="material-icons transform hover:scale-125 cursor-pointer">tag_faces</span>
+          <span class="material-icons transform hover:scale-125 cursor-pointer">dehaze</span>
+        </div>
+      </div>
+      <div class="w-full flex text-xl text-accent-darker">
+        <div class="flex flex-col w-3/4">
+          <label class="p-5 text-2xl">
+            {{headline}}
+          </label>
+          <label class="px-5 pb-5">
+            {{subtext}}
+          </label>
+        </div>
+        <div class="flex flex-col w-1/4 p-5">
+          <div class="p-2 float-left">
+            <label>
+              Goal:
+            </label>
+            <label class="font-bold">
+              {{goal}}
+            </label>
+          </div>
+          <div class="p-2 float-left text-warning">
+            <label>
+              Deadline:
+            </label>
+            <label class="font-bold">
+              {{getDeadline()}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

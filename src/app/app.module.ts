@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TopicComponent} from './shared/components/topic/topic.component';
 import {TopicComponent as TopicPageComponent} from './pages/topic/topic.component';
-import {IterationHeadComponent} from './shared/components/iteration-head/iteration-head.component';
+import {IterationHeadComponent} from './shared/components/timeline/iteration-head/iteration-head.component';
 import {DatePipe} from "@angular/common";
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import {ProjectListComponent, SafeHtmlPipe} from './shared/components/sidebar/project-list/project-list.component';
