@@ -7,6 +7,8 @@ import {ProposalInput} from "../../shared/components/timeline/proposal/proposal.
 })
 export class TopicComponent implements OnInit {
 
+  public openedComments: string = "some-id"
+
   public proposal: ProposalInput = {
     id: 'some-id',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem.',
@@ -19,16 +21,36 @@ export class TopicComponent implements OnInit {
     creationDate: '2022-01-16T12:06:51.384Z',
     files: [],
     comments: {
-      lastActiveUsers: [],
-      commentsAmount: 0,
-      lastCommentDate: '2022-01-16T12:06:51.384Z',
+      lastActiveUsers: [{
+        firstName: 'Anton',
+        lastName: 'Om',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=AntonOm'
+      }, {
+        firstName: 'Andreea',
+        lastName: 'Om',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=andreea'
+      }, {
+        firstName: 'Ileana',
+        lastName: 'Popa',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=gigel'
+      }, {
+        firstName: 'Gigel',
+        lastName: 'Om',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=gigelan'
+      }],
+      commentsAmount: 5,
+      lastCommentDate: '2022-01-16T21:02:58.296Z',
     },
     rating: {
       1: 1, 2: 2, 3: 3, 4: 0, 5: 0, yourVote: [], average: 3.5
     }
   }
   public proposal2: ProposalInput = {
-    id: 'some-id',
+    id: 'some-id2',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem.',
     author: {
       firstName: 'Ileana',
@@ -39,8 +61,18 @@ export class TopicComponent implements OnInit {
     creationDate: '2022-01-16T12:06:51.384Z',
     files: [],
     comments: {
-      lastActiveUsers: [],
-      commentsAmount: 0,
+      lastActiveUsers: [{
+        firstName: 'Anton',
+        lastName: 'Om',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=AntonOm'
+      }, {
+        firstName: 'Andreea',
+        lastName: 'Om',
+        email: 'ileana.popa@gmail.com',
+        profilePic: 'https://i.pravatar.cc/150?u=andreea'
+      }],
+      commentsAmount: 2,
       lastCommentDate: '2022-01-16T12:06:51.384Z',
     },
     rating: {

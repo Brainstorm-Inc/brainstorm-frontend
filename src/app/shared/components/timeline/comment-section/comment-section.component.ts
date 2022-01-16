@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../../models/user.model";
 import {Rating} from "../../../models/rating.model";
 
@@ -7,6 +7,9 @@ import {Rating} from "../../../models/rating.model";
   templateUrl: './comment-section.component.html'
 })
 export class CommentSectionComponent implements OnInit {
+
+  @Input()
+  public sectionId!: string;
 
   public anton: User = {
     firstName: 'Anton',

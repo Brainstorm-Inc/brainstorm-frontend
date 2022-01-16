@@ -18,17 +18,39 @@
         </div>
       </div>
       <div class="w-full flex text-xl text-accent-darker">
-        <div class="flex flex-col w-5/6">
-          <label class="pl-5 py-5 text-white">
+        <div class="flex flex-col justify-between items-start w-5/6 pl-5 space-y-5 py-5">
+          <label class="text-white">
             {{proposal.description}}
           </label>
+          <div
+            class="group min-w-2/3 border-2 hover:border-secondary px-4 py-2 rounded-3xl flex justify-between items-center" [ngClass]="{'border-secondary': isCurrentCommentOpened(), 'border-accent-darker': !isCurrentCommentOpened()}">
+            <div class="flex justify-start items-center space-x-2">
+              <div class="flex justify-start items-center -space-x-4">
+                <div
+                  *ngFor="let user of proposal.comments.lastActiveUsers"
+                  [ngStyle]="{'background-image': 'url(' + (user.profilePic ?? 'https://i.pravatar.cc/300?u='+user.firstName+user.lastName) + ')'}"
+                  class="w-12 h-12 flex-shrink-0 rounded-full bg-center bg-origin-content bg-cover shadow-small-outer"></div>
+              </div>
+              <div class="font-bold text-primary">
+                {{proposal.comments.commentsAmount}} comments
+              </div>
+              <div
+                class="font-light text-accent-darker">{{getCommentTime()}}</div>
+            </div>
+
+            <button
+              class="w-8 h-8 flex-shrink-0 material-icons text-3xl flex justify-end items-center group-hover:text-secondary" [ngClass]="{'text-secondary': isCurrentCommentOpened()}">
+              arrow_forward_ios
+            </button>
+          </div>
         </div>
         <div class="flex items-end w-1/6 py-5 pr-7">
           <div class="h-full w-full text-accent relative">
             <div
               class="absolute top-0 bottom-0 right-0 h-full border-r-8 border-accent-darker z-0 shadow-small-outer rounded-full"></div>
-            <div [ngClass]="{'h-1/5 border-red-600': 1 <= proposal.rating.average &&  proposal.rating.average < 2,'h-2/5 border-red-400': 2 <= proposal.rating.average && proposal.rating.average < 3,'h-3/5 border-secondary': 3 <= proposal.rating.average && proposal.rating.average < 4,'h-4/5 border-indigo-400': 4 <= proposal.rating.average && proposal.rating.average < 5,'h-full border-primary': 5 <= proposal.rating.average}"
-                 class="absolute bottom-0 right-0 border-r-8 z-0 shadow-small-outer rounded-full"
+            <div
+              [ngClass]="{'h-1/5 border-red-600': 1 <= proposal.rating.average &&  proposal.rating.average < 2,'h-2/5 border-red-400': 2 <= proposal.rating.average && proposal.rating.average < 3,'h-3/5 border-secondary': 3 <= proposal.rating.average && proposal.rating.average < 4,'h-4/5 border-indigo-400': 4 <= proposal.rating.average && proposal.rating.average < 5,'h-full border-primary': 5 <= proposal.rating.average}"
+              class="absolute bottom-0 right-0 border-r-8 z-0 shadow-small-outer rounded-full"
             ></div>
             <ul class="w-full flex flex-col justify-between items-end pr-5 space-y-4 text-md">
               <li class="cursor-pointer transform hover:scale-125">

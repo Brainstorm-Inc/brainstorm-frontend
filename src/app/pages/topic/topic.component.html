@@ -12,15 +12,15 @@
           subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus orci, varius et mattis et, pretium at purus. Fusce dictum, erat in accumsan scelerisque, turpis nulla blandit mauris, quis gravida leo nibh a nunc. In mattis lobortis nunc vel varius. Duis ut gravida felis. Phasellus eget pellentesque justo, ac mattis ex. Vivamus sed elit non ligula congue hendrerit a ac tortor. Ut vel viverra lorem."></app-iteration-head>
       </li>
       <li>
-        <app-proposal [proposal]="proposal"></app-proposal>
+        <app-proposal [proposal]="proposal" [openedComments]="openedComments"></app-proposal>
       </li>
       <li>
         <app-event></app-event>
       </li>
       <li>
-        <app-proposal [proposal]="proposal2"></app-proposal>
+        <app-proposal [proposal]="proposal2" [openedComments]="openedComments"></app-proposal>
       </li>
     </ul>
   </div>
-  <app-comment-section class="sticky top-0 right-0 h-full flex-shrink-0 w-80"></app-comment-section>
+  <app-comment-section [sectionId]="openedComments" class="sticky top-0 right-0 h-full flex-shrink-0 w-80"></app-comment-section>
 </div>
