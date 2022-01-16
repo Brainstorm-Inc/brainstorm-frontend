@@ -25,6 +25,7 @@ import { DialogModule } from '@ngneat/dialog';
 import { CreateOrgComponent } from './shared/components/topbar/create-org/create-org.component';
 import { CreateProjectComponent } from './shared/components/sidebar/create-project/create-project.component';
 import { CreateTopicComponent } from './shared/components/topic/create-topic/create-topic.component';
+import { EventComponent } from './shared/components/timeline/event/event.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CreateTopicComponent } from './shared/components/topic/create-topic/cre
     TopbarComponent,
     CreateOrgComponent,
     CreateTopicComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
